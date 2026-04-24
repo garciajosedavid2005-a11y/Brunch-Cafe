@@ -1,0 +1,31 @@
+import { NavLink } from 'react-router-dom'
+import compras from '../assets/carrito-de-compras.png'
+import '../styles/navbar.css'
+
+const Navbar = () => {
+    return (
+        <div className="top-bar">
+            <div className="top-bar-left">
+                <ul className="menu">
+                    <li className="menu-text">
+                        <span className='title'>BRUNCH CAFE</span>
+                        <small className='subtitle'>Hecho con amor</small>
+                    </li>
+                </ul>
+                
+            </div>
+            <div className="top-bar-right">
+                <ul className="menu">
+                    <li><NavLink className = "access" to="/">Inicio</NavLink></li>
+                    <li><NavLink className = "access" to="/menu">Menú</NavLink></li>
+                    <li><NavLink className = "access" to="/nosotros">Nosotros</NavLink></li>
+                    <li><NavLink className = "access" to="/reservas">Reservas</NavLink></li>
+                    <li><NavLink className = "access" to="/comentarios">Comentarios</NavLink></li>   
+                    <li><NavLink className = "access" to="/domicilios"><img src={compras} alt="Carrito de compras" className='icon-carrito' /></NavLink></li>
+                </ul>
+            </div>
+        </div>
+    )
+}
+
+export default Navbar

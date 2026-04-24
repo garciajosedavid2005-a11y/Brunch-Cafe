@@ -1,0 +1,57 @@
+.menu .active {
+    border-bottom: 2px solid var(--color-suave);
+    color: var(--color-suave);
+}
+
+.top-bar,
+.menu,
+.menu-text{
+    background-color: var(--color-fondo) !important ;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.title {
+    color: var(--color-oscuro);
+}
+
+.subtitle {
+    color: var(--color-oscuro);
+    font-size: 11px;
+    padding: 0 0 0 10px;
+    
+}
+
+span {
+    color: var(--color-oscuro);
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+    padding-left: 10px;
+}
+
+small {
+    color: var(--color-oscuro);
+    font-size: 11px;
+    padding-left: 25px;
+}
+
+a {
+    color: var(--color-oscuro);
+    padding-right: 20px;
+}
+
+a:hover {
+    color: var(--color-suave);
+}
+
+.access {
+    margin-right: 20px;
+    color: var(--color-oscuro);
+}
+
+.icon-carrito {
+    width: 24px;
+    height: 24px;
+}
