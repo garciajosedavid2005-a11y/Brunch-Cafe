@@ -1,0 +1,251 @@
+/* ════════════════════════════════
+   Hero.css — Carrusel principal
+   ════════════════════════════════ */
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  min-height: 500px;
+  max-height: 720px;
+  overflow: hidden;
+  background: var(--color-oscuro);
+}
+
+/* ── Fondo ── */
+.hero__fondo {
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.4s ease;
+}
+
+.hero__fondo--desvanecido {
+  opacity: 0;
+}
+
+.hero__imagen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Placeholder (sin imagen) ── */
+.hero__placeholder {
+  width: 100%;
+  height: 100%;
+  background: var(--color-oscuro);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 2px dashed var(--color-medio);
+}
+
+.hero__placeholder-icono {
+  font-size: 3.5rem;
+  opacity: 0.4;
+}
+
+.hero__placeholder-etiqueta {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.1rem;
+  color: var(--color-fondo);
+  opacity: 0.6;
+  margin: 0;
+}
+
+.hero__placeholder-pista {
+  font-family: monospace;
+  font-size: 0.8rem;
+  color: var(--color-suave);
+  opacity: 0.7;
+  margin: 0;
+}
+
+/* ── Overlay ── */
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(44, 7, 3, 0.80) 0%,
+    rgba(44, 7, 3, 0.40) 60%,
+    transparent 100%
+  );
+  z-index: 1;
+}
+
+/* ── Contenido (texto + botones) ── */
+.hero__contenido {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.hero__contenido--oculto {
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+.hero__contenido--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero__texto {
+  max-width: 580px;
+}
+
+.hero__titulo {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-style: italic;
+  font-weight: 700;
+  color: var(--color-marfil);
+  line-height: 1.15;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 20px rgba(44, 7, 3, 0.5);
+}
+
+.hero__subtitulo {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.05rem;
+  color: var(--color-fondo);
+  font-weight: 300;
+  line-height: 1.65;
+  margin-bottom: 1.8rem;
+}
+
+/* ── Botones ── */
+.hero__acciones {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.hero__boton {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.7rem 1.8rem;
+  border-radius: 2px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.hero__boton--primario {
+  background: var(--color-primario);
+  color: var(--color-marfil);
+  border: 1.5px solid var(--color-primario);
+}
+
+.hero__boton--primario:hover {
+  background: var(--color-medio);
+  border-color: var(--color-medio);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(137, 6, 32, 0.4);
+}
+
+.hero__boton--contorno {
+  background: transparent;
+  color: var(--color-marfil);
+  border: 1.5px solid var(--color-fondo);
+}
+
+.hero__boton--contorno:hover {
+  background: rgba(235, 212, 203, 0.15);
+  border-color: var(--color-marfil);
+}
+
+/* ── Wave ── */
+.hero__ola {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  line-height: 0;
+  overflow: hidden;
+}
+
+.hero__ola svg {
+  width: 100%;
+  height: 100px;
+  display: block;
+}
+
+/* ── Flechas ── */
+.hero__flecha {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 4;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(235, 212, 203, 0.35);
+  background: rgba(44, 7, 3, 0.35);
+  color: var(--color-marfil);
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(4px);
+}
+
+.hero__flecha:hover {
+  background: rgba(137, 6, 32, 0.7);
+  border-color: var(--color-primario);
+}
+
+.hero__flecha--anterior { left: 1.2rem; }
+.hero__flecha--siguiente { right: 1.2rem; }
+
+/* ── Puntos de navegación ── */
+.hero__puntos {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 4;
+}
+
+.hero__punto {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(235, 212, 203, 0.4);
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.hero__punto--activo {
+  background: var(--color-primario);
+  width: 26px;
+  border-radius: 4px;
+}
+
+/* ── Responsive ── */
+@media screen and (max-width: 640px) {
+  .hero {
+    height: 85vh;
+  }
+
+  .hero__flecha {
+    display: none;
+  }
+}

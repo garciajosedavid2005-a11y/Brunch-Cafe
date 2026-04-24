@@ -1,0 +1,31 @@
+[
+{
+  "id": 1,
+  "image": "/imagenes/slide1.jpg",
+  "showText": true,
+  "overlay": true,
+  "title": "Bienvenido a Brunch Café",
+  "subtitle": "Disfruta de nuestros deliciosos platos y bebidas en un ambiente acogedor.",
+  "buttons": [
+    { "label": "Ver Menú", "href": "/menu"
+    },
+    { "label": "Reservar", "href": "/reservas" }
+  ]
+},
+  {
+    "id": 2,
+    "image": "/imagenes/slide2.jpg",
+    "overlay": true,
+    "showText": true,
+    "title": "Disfruta de nuestro ambiente acogedor",
+    "subtitle": "Ven a relajarte y disfrutar de una experiencia única en Brunch Café.",
+    "buttons": [
+      { "label": "Conócenos", "href": "/nosotros" }
+    ] 
+  },
+  {
+    "id": 3,
+    "image": "/imagenes/slide3.jpg",
+    "overlay": false
+  }
+]
