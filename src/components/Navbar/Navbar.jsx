@@ -1,10 +1,13 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import compras from "../../assets/carrito-de-compras.png";
 import "./Navbar.css";
 
 const Navbar = () => {
+    const ubicacion = useLocation();
+      const esInicio = ubicacion.pathname === "/";
+
   return (
-    <div className="top-bar">
+    <div className={"top-bar" + (esInicio ? " top-bar--transparente" : "")}>
       <div className="top-bar-left">
         <ul className="menu">
           <li className="menu-text">
