@@ -5,9 +5,15 @@
 }
 
 body {
-    background-color: var(--color-marfil);
-    color: var(--color-oscuro);
-    font-family: 'Georgia', serif;
+  background-color: var(--color-fondo);
+  margin: 0;
+  padding: 0;
+}
+
+.main-content {
+  background-color: var(--color-fondo);
+    padding-top: 0 !important;
+    margin-top: 0 !important;
 }
 
 #root {

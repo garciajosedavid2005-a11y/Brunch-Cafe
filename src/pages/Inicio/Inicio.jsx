@@ -1,8 +1,9 @@
 import Hero from "../../components/Hero/Hero";
+import "./Inicio.css";
 
 const Inicio = () => {
   return (
-    <main>
+    <main className="pagina-inicio">
       <Hero />
       {/* Aquí irán las próximas secciones: Destacados, Experiencia, Testimonios */}
     </main>
