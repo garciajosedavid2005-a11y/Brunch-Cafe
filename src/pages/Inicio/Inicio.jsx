@@ -1,11 +1,13 @@
 import Hero from "../../components/Hero/Hero";
+import Destacados from "../../components/Destacados/Destacados";
 import "./Inicio.css";
+
 
 const Inicio = () => {
   return (
     <main className="pagina-inicio">
       <Hero />
-      {/* Aquí irán las próximas secciones: Destacados, Experiencia, Testimonios */}
+      <Destacados />
     </main>
   );
 };

@@ -12,11 +12,13 @@ const Navbar = () => {
       <div className="top-bar-left">
         <ul className="menu">
           <li className="menu-text">
+            <NavLink to="/" className="navbar__logo-enlace">
             <img 
               src={logo}
               alt="Brunch Café" 
               className="navbar__logo"
             />
+            </NavLink>
           </li>
         </ul>
       </div>

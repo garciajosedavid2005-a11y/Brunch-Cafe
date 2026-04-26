@@ -13,13 +13,20 @@
   transition: background 0.3s ease;
 }
 
+.navbar__logo-enlace,
+.navbar__logo-enlace.active {
+  border-bottom: none !important;
+  padding: 0;
+  margin: 0;
+}
+
 .menu,
 .menu-text {
   background-color: transparent !important;
 }
 
-.top-bar .navbar__logo {
-  height: 65px;
+.navbar__logo {
+  height: 60px;
   width: auto;
   display: block;
 }
@@ -39,7 +46,7 @@
 }
 
 
-.top-bar.top-bar--transparente {
+.top-bar--transparente {
   background-color: transparent !important;
   position: fixed;
   top: 0;
@@ -48,31 +55,31 @@
   z-index: 100;
   box-shadow: none;
 }
-.top-bar.top-bar--transparente .menu,
-.top-bar.top-bar--transparente .menu-text,
-.top-bar.top-bar--transparente .top-bar-left,
-.top-bar.top-bar--transparente .top-bar-right {
+.top-bar--transparente .menu,
+.top-bar--transparente .menu-text,
+.top-bar--transparente .top-bar-left,
+.top-bar--transparente .top-bar-right {
   background-color: transparent !important;
 }
 
 /* Textos en blanco */
-.top-bar.top-bar--transparente .title,
-.top-bar.top-bar--transparente .subtitle {
+.top-bar--transparente .title,
+.top-bar--transparente .subtitle {
   color: var(--color-marfil) !important;
 }
-.top-bar.top-bar--transparente .access {
+.top-bar--transparente .access {
   color: var(--color-marfil) !important;
 }
 
-.top-bar.top-bar--transparente .access:hover {
+.top-bar--transparente .access:hover {
   color: var(--color-suave) !important;
 }
-.top-bar.top-bar--transparente .menu .active {
+.top-bar--transparente .menu .active {
   color: var(--color-suave) !important;
   border-bottom-color: var(--color-suave);
 }
 
-.top-bar.top-bar--transparente .icon-carrito {
+.top-bar--transparente .icon-carrito {
   filter: brightness(0) invert(1);
 }
 
