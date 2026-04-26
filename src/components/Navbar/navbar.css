@@ -5,6 +5,7 @@
 
 .top-bar {
   background-color: var(--color-fondo) !important;
+  padding-top: 0;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -17,20 +18,10 @@
   background-color: transparent !important;
 }
 
-
-.title {
-    color: var(--color-oscuro);
-    font-size: 16px;
-    font-weight: bold;
-    display: block;
-    padding-left: 10px;
-}
-
-.subtitle {
-    color: var(--color-oscuro);
-    font-size: 11px;
-    padding: 0 0 0 10px;
-    
+.top-bar .navbar__logo {
+  height: 65px;
+  width: auto;
+  display: block;
 }
 
 .access {

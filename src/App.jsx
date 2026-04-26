@@ -8,9 +8,8 @@ import Reservas from "./pages/Reservas/Reservas";
 import Domicilios from "./pages/Domicilios/Domicilios";
 import Comentarios from "./pages/Comentarios/Comentarios";
 
-import "foundation-sites/dist/css/foundation.min.css";
 import "./styles/index.css";
-import "./styles/Variables.css";
+import "./styles/variables.css";
 
 function App() {
   return (
