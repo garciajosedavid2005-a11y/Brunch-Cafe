@@ -1,0 +1,178 @@
+/* ════════════════════════════════
+   Destacados.css
+   ════════════════════════════════ */
+
+.destacados {
+  background-color: var(--color-fondo);
+  padding: 5rem 0;
+}
+
+/* ── Encabezado ── */
+.destacados__encabezado {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.destacados__divisor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 0.8rem;
+}
+
+.destacados__linea {
+  width: 50px;
+  height: 1px;
+  background-color: var(--color-primario);
+  opacity: 0.5;
+  display: block;
+}
+
+.destacados__icono {
+  color: var(--color-primario);
+  font-size: 0.65rem;
+}
+
+.destacados__titulo {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  color: var(--color-oscuro);
+  margin-bottom: 0.4rem;
+}
+
+.destacados__subtitulo {
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  color: var(--color-medio);
+  font-weight: 300;
+  letter-spacing: 0.05em;
+}
+
+/* ── Grilla ── */
+.destacados__grilla {
+  row-gap: 1.5rem;
+}
+
+/* ── Tarjeta ── */
+.tarjeta-destacado {
+  background: var(--color-marfil);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 16px rgba(44, 7, 3, 0.07);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.tarjeta-destacado:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 36px rgba(44, 7, 3, 0.13);
+}
+
+/* ── Imagen ── */
+.tarjeta-destacado__imagen-wrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+}
+
+.tarjeta-destacado__imagen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.tarjeta-destacado:hover .tarjeta-destacado__imagen {
+  transform: scale(1.06);
+}
+
+/* ── Placeholder ── */
+.tarjeta-destacado__placeholder {
+  width: 100%;
+  height: 100%;
+  background: var(--color-suave);
+  opacity: 0.4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-height: 180px;
+}
+
+.tarjeta-destacado__placeholder-icono {
+  font-size: 2.5rem;
+}
+
+.tarjeta-destacado__placeholder-texto {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.8rem;
+  color: var(--color-oscuro);
+  margin: 0;
+}
+
+/* ── Badge de categoría ── */
+.tarjeta-destacado__categoria {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: var(--color-primario);
+  color: var(--color-marfil);
+  font-family: 'Lato', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 2px;
+}
+
+/* ── Cuerpo ── */
+.tarjeta-destacado__cuerpo {
+  padding: 1.1rem 1.2rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.tarjeta-destacado__nombre {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  color: var(--color-oscuro);
+  margin-bottom: 0.4rem;
+  line-height: 1.3;
+}
+
+.tarjeta-destacado__descripcion {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.88rem;
+  color: var(--color-medio);
+  line-height: 1.55;
+  flex: 1;
+  margin-bottom: 1rem;
+}
+
+/* ── Pie ── */
+.tarjeta-destacado__pie {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.tarjeta-destacado__precio {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-primario);
+}
+
+/* ── Responsive ── */
+@media screen and (max-width: 640px) {
+  .destacados {
+    padding: 3rem 0;
+  }
+}

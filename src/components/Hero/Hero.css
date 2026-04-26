@@ -142,6 +142,10 @@
   cursor: pointer;
 }
 
+.hero__boton:hover {
+  color: inherit;
+}
+
 .hero__boton--primario {
   background: var(--color-primario);
   color: var(--color-marfil);
@@ -151,6 +155,7 @@
 .hero__boton--primario:hover {
   background: var(--color-medio);
   border-color: var(--color-medio);
+  color: var(--color-marfil) !important;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(137, 6, 32, 0.4);
 }
@@ -164,6 +169,7 @@
 .hero__boton--contorno:hover {
   background: rgba(235, 212, 203, 0.15);
   border-color: var(--color-marfil);
+  color: var(--color-marfil) !important;
 }
 
 /* ── Wave ── */

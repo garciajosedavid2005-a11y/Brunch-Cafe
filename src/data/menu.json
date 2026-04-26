@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "nombre": "Nombre del producto 1",
+    "descripcion": "Descripción breve del producto.",
+    "precio": "$00.000",
+    "categoria": "Desayunos",
+    "imagen": null,
+    "destacado": true
+  },
+  {
+    "id": 2,
+    "nombre": "Nombre del producto 2",
+    "descripcion": "Descripción breve del producto.",
+    "precio": "$00.000",
+    "categoria": "Bebidas",
+    "imagen": null,
+    "destacado": true
+  },
+  {
+    "id": 3,
+    "nombre": "Nombre del producto 3",
+    "descripcion": "Descripción breve del producto.",
+    "precio": "$00.000",
+    "categoria": "Brunch",
+    "imagen": null,
+    "destacado": true
+  },
+  {
+    "id": 4,
+    "nombre": "Nombre del producto 4",
+    "descripcion": "Descripción breve del producto.",
+    "precio": "$00.000",
+    "categoria": "Postres",
+    "imagen": null,
+    "destacado": true
+  },
+  {
+    "id": 5,
+    "nombre": "Nombre del producto 5",
+    "descripcion": "Descripción breve del producto.",
+    "precio": "$00.000",
+    "categoria": "Desayunos",
+    "imagen": null,
+    "destacado": false
+  }
+]
