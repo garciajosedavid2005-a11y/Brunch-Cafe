@@ -1,5 +1,6 @@
 import { NavLink, useLocation } from "react-router-dom";
 import compras from "../../assets/carrito-de-compras.png";
+import logo from "../../assets/logo.png";
 import "./Navbar.css";
 
 const Navbar = () => {
@@ -11,8 +12,11 @@ const Navbar = () => {
       <div className="top-bar-left">
         <ul className="menu">
           <li className="menu-text">
-            <span className="title">BRUNCH CAFE</span>
-            <small className="subtitle">Hecho con amor</small>
+            <img 
+              src={logo}
+              alt="Brunch Café" 
+              className="navbar__logo"
+            />
           </li>
         </ul>
       </div>
