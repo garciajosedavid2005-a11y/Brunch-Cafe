@@ -1,0 +1,68 @@
+.formulario-card input,
+.formulario-card select,
+.formulario-card textarea {
+    border-radius: 6px !important;
+}
+
+.grid-x {
+    justify-content: center;
+}
+
+.formulario-seccion {
+    padding: 3rem 0;
+    background-color: var(--color-fondo);
+}
+
+.formulario-card {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 2rem 2.5rem;
+    box-shadow: 0 4px 20px rgba(44, 7, 3, 0.1);
+    margin: 0 auto;
+}
+
+.formulario-titulo {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-oscuro);
+    letter-spacing: 0.05em;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-suave);
+}
+
+.formulario-botones {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.formulario-botones .button {
+    background-color: var(--color-primario);
+    border-color: var(--color-primario);
+    color: var(--color-marfil);
+    border-radius: 4px;
+    padding: 0.6rem 1.5rem;
+    font-size: 0.85rem;
+}
+
+.formulario-botones .button:hover {
+    background-color: var(--color-medio);
+    border-color: var(--color-medio);
+}
+
+.formulario-botones .button.secondary.hollow {
+    background-color: transparent;
+    border: 1.5px solid var(--color-primario);
+    color: var(--color-primario);
+    border-radius: 4px;
+    padding: 0.6rem 1.5rem;
+    font-size: 0.85rem;
+}
+
+.formulario-botones .button.secondary.hollow:hover {
+    background-color: var(--color-primario);
+    color: var(--color-marfil);
+}

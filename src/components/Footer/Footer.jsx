@@ -23,6 +23,7 @@ const Footer = () => {
         <div className="cell small-12 medium-4">
           <h4>Horario de Atención</h4>
           <span>Lunes - Viernes: 8:00 AM - 4:00 PM</span>
+          <br />
           <span>Sábado - Domingo: 9:00 AM - 3:00 PM</span>
           <div className="footer-icons">
             <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
@@ -44,7 +45,9 @@ const Footer = () => {
         <div className="cell small-12 medium-4">
           <h4>Contáctenos</h4>
           <span>Tel: +57 0000000000</span>
+          <br />
           <span>Email: info@brunchcafe.com</span>
+          <br />
           <span>Dirección: Carrera 36B #30-06</span>
         </div>
 
