@@ -4,13 +4,19 @@
 }
 
 .top-bar {
-  background-color: var(--color-fondo) !important;
+  background-color: var(--color-fondo);
   padding-top: 0;
-  position: sticky;
+  position: static;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
   width: 100%;
   transition: background 0.3s ease;
+}
+.menu,
+.menu-text {
+  background-color: transparent !important;
 }
 
 .navbar__logo-enlace,
@@ -20,10 +26,7 @@
   margin: 0;
 }
 
-.menu,
-.menu-text {
-  background-color: transparent !important;
-}
+
 
 .navbar__logo {
   height: 60px;
@@ -48,13 +51,10 @@
 
 .top-bar--transparente {
   background-color: transparent !important;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  box-shadow: none;
+    box-shadow: none;
+    position: absolute;
 }
+
 .top-bar--transparente .menu,
 .top-bar--transparente .menu-text,
 .top-bar--transparente .top-bar-left,

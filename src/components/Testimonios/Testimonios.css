@@ -1,0 +1,141 @@
+/* ════════════════════════════════
+   Testimonios.css
+   ════════════════════════════════ */
+
+.testimonios {
+  padding: 2rem;
+  background: var(--color-oscuro);
+  border-radius: 12px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Divisor ── */
+.testimonios__divisor {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0.8rem;
+}
+
+.testimonios__linea {
+  width: 40px;
+  height: 1px;
+  background-color: var(--color-suave);
+  opacity: 0.5;
+  display: block;
+}
+
+.testimonios__icono-divisor {
+  color: var(--color-suave);
+  font-size: 0.65rem;
+}
+
+/* ── Título ── */
+.testimonios__titulo {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--color-marfil);
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+/* ── Cuerpo del comentario ── */
+.testimonios__cuerpo {
+  flex: 1;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.testimonios__cuerpo--oculto {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.testimonios__cuerpo--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.testimonios__comilla {
+  font-family: 'Playfair Display', serif;
+  font-size: 5rem;
+  color: var(--color-primario);
+  line-height: 0;
+  display: block;
+  margin-bottom: 1rem;
+  opacity: 0.6;
+}
+
+.testimonios__blockquote {
+  margin: 0;
+  border: none;
+  padding: 0;
+}
+
+.testimonios__comentario {
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  color: rgba(245, 239, 230, 0.88);
+  line-height: 1.8;
+  font-style: italic;
+  font-weight: 300;
+  margin-bottom: 1.2rem;
+}
+
+/* ── Autor ── */
+.testimonios__autor {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.testimonios__nombre {
+  font-family: 'Playfair Display', serif;
+  font-style: normal;
+  font-size: 0.95rem;
+  color: var(--color-marfil);
+}
+
+/* ── Estrellas ── */
+.testimonios__estrellas {
+  display: flex;
+  gap: 2px;
+}
+
+.testimonios__estrella {
+  font-size: 1rem;
+}
+
+.testimonios__estrella--llena {
+  color: var(--color-primario);
+}
+
+.testimonios__estrella--vacia {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+/* ── Puntos ── */
+.testimonios__puntos {
+  display: flex;
+  gap: 8px;
+  margin-top: 1.5rem;
+}
+
+.testimonios__punto {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(235, 212, 203, 0.3);
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.testimonios__punto--activo {
+  background: var(--color-primario);
+  width: 22px;
+  border-radius: 4px;
+}

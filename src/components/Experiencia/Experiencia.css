@@ -1,0 +1,78 @@
+/* ════════════════════════════════
+   Experiencia.css
+   ════════════════════════════════ */
+
+.experiencia {
+  padding: 2rem;
+  background: var(--color-marfil);
+  border-radius: 12px;
+  height: 100%;
+}
+
+/* ── Divisor ── */
+.experiencia__divisor {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0.8rem;
+}
+
+.experiencia__linea {
+  width: 40px;
+  height: 1px;
+  background-color: var(--color-primario);
+  opacity: 0.5;
+  display: block;
+}
+
+.experiencia__icono-divisor {
+  color: var(--color-primario);
+  font-size: 0.65rem;
+}
+
+/* ── Título ── */
+.experiencia__titulo {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--color-oscuro);
+  margin-bottom: 1.8rem;
+  line-height: 1.2;
+}
+
+/* ── Lista ── */
+.experiencia__lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.experiencia__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.experiencia__icono {
+  font-size: 1.6rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.experiencia__item-titulo {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.95rem;
+  color: var(--color-oscuro);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.experiencia__item-descripcion {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.88rem;
+  color: var(--color-medio);
+  line-height: 1.55;
+  margin: 0;
+}

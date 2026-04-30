@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "icono": "🌿",
+    "titulo": "Ingredientes frescos",
+    "descripcion": "Seleccionamos productos locales y de temporada cada mañana."
+  },
+  {
+    "id": 2,
+    "icono": "☕",
+    "titulo": "Café de especialidad",
+    "descripcion": "Granos de origen único, preparados por baristas certificados."
+  },
+  {
+    "id": 3,
+    "icono": "🪑",
+    "titulo": "Ambiente acogedor",
+    "descripcion": "Un espacio diseñado para que te sientas como en casa."
+  }
+]
