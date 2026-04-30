@@ -26,6 +26,6 @@
   {
     "id": 3,
     "image": "/imagenes/slide3.jpg",
-    "overlay": false
+    "overlay": true
   }
 ]

@@ -103,12 +103,12 @@
 }
 
 .hero__titulo {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2.2rem, 5vw, 4rem);
-  font-style: italic;
-  font-weight: 700;
+  font-family: var(--fuente-decorativa);
+  font-size: clamp(2.5rem, 5vw, 4rem); 
+  font-style: normal;                
+  font-weight: 400;                  
   color: var(--color-marfil);
-  line-height: 1.15;
+  line-height: 1.2;
   margin-bottom: 1rem;
   text-shadow: 0 2px 20px rgba(44, 7, 3, 0.5);
 }
