@@ -1,0 +1,80 @@
+.hero-reservas {
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  min-height: 300px;
+  max-height: 450px;
+  overflow: hidden;
+  background: var(--color-oscuro);
+}
+
+.hero-reservas__fondo {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-reservas__imagen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-reservas__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(44, 7, 3, 0.75) 0%,
+    rgba(44, 7, 3, 0.35) 60%,
+    transparent 100%
+  );
+  z-index: 1;
+}
+
+.hero-reservas__contenido {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-reservas__texto {
+  max-width: 100%;
+}
+
+.hero-reservas__titulo {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  color: var(--color-marfil);
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 20px rgba(44, 7, 3, 0.5);
+}
+
+.hero-reservas__subtitulo {
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  color: var(--color-fondo);
+  font-weight: 300;
+  line-height: 1.65;
+}
+
+.hero-reservas__ola {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  line-height: 0;
+  overflow: hidden;
+}
+
+.hero-reservas__ola svg {
+  width: 100%;
+  height: 100px;
+  display: block;
+}
