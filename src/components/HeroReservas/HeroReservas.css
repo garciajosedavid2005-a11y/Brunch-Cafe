@@ -5,9 +5,9 @@
 .hero-reservas {
   position: relative;
   width: 100%;
-  height: 50vh;
-  min-height: 300px;
-  max-height: 450px;
+  height: 60vh;
+  min-height: 400px;
+  max-height: 600px;
   overflow: hidden;
   background: var(--color-oscuro);
 }

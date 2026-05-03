@@ -1,23 +1,25 @@
 import { NavLink, useLocation } from "react-router-dom";
 import compras from "../../assets/carrito-de-compras.png";
-import logo from "../../assets/logo.png";
+import logoOscuro from "../../assets/logoOscuro.png";
+import logoClaro from "../../assets/logoClaro.png";
+
 import "./Navbar.css";
 
 const Navbar = () => {
     const ubicacion = useLocation();
-    const esInicio = ubicacion.pathname === "/"|| ubicacion.pathname === "/reservas";
+    const esTransparente = ubicacion.pathname === "/"|| ubicacion.pathname === "/reservas";
 
   return (
-    <div className={"top-bar" + (esInicio ? " top-bar--transparente" : "")}>
+    <div className={"top-bar" + (esTransparente ? " top-bar--transparente" : "")}>
       <div className="top-bar-left">
         <ul className="menu">
           <li className="menu-text">
             <NavLink to="/" className="navbar__logo-enlace">
-            <img 
-              src={logo}
-              alt="Brunch Café" 
-              className="navbar__logo"
-            />
+              <img
+                src={esTransparente ? logoClaro : logoOscuro}
+                alt="Brunch Café"
+                className="navbar__logo"
+              />
             </NavLink>
           </li>
         </ul>
