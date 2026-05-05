@@ -1,8 +1,4 @@
-/**
- * Testimonios.jsx
- * Carrusel de comentarios de clientes.
- * El administrador edita: src/data/testimonios.json
- */
+
 
 import { useState, useEffect, useCallback } from "react";
 import testimonios from "../../data/testimonios.json";
@@ -61,9 +57,8 @@ const Testimonios = () => {
         aria-live="polite"
         aria-atomic="true"
       >
-        <span className="testimonios__comilla" aria-hidden="true">&ldquo;</span>
         <blockquote className="testimonios__blockquote">
-          <p className="testimonios__comentario">{testimonio.comentario}</p>
+          <p className="testimonios__comentario">"{testimonio.comentario}"</p>
           <footer className="testimonios__autor">
             <cite className="testimonios__nombre">— {testimonio.autor}</cite>
             <Estrellas calificacion={testimonio.calificacion} />

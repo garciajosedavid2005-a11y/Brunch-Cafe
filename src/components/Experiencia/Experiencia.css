@@ -56,9 +56,15 @@
 }
 
 .experiencia__icono {
-  font-size: 1.6rem;
+  margin-top: 0.5rem;
+  font-size: 2rem;
+  color: var(--color-oscuro);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
-  margin-top: 2px;
 }
 
 .experiencia__item-titulo {
