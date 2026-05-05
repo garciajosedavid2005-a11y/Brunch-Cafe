@@ -3,12 +3,14 @@
    ════════════════════════════════ */
 
 .testimonios {
+  margin-top: 1rem;
   padding: 2rem;
-  background: var(--color-oscuro);
   border-radius: 12px;
   height: 100%;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
 }
 
 /* ── Divisor ── */
@@ -22,13 +24,13 @@
 .testimonios__linea {
   width: 40px;
   height: 1px;
-  background-color: var(--color-suave);
+  background-color: var(--color-oscuro);
   opacity: 0.5;
   display: block;
 }
 
 .testimonios__icono-divisor {
-  color: var(--color-suave);
+  color: var(--color-oscuro);
   font-size: 0.65rem;
 }
 
@@ -36,14 +38,14 @@
 .testimonios__titulo {
   font-family: 'Playfair Display', serif;
   font-size: clamp(1.5rem, 3vw, 2rem);
-  color: var(--color-marfil);
+  color: var(--color-oscuro);
   margin-bottom: 1.5rem;
   line-height: 1.2;
 }
 
 /* ── Cuerpo del comentario ── */
 .testimonios__cuerpo {
-  flex: 1;
+  flex: 0;
   transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
@@ -57,45 +59,40 @@
   transform: translateY(0);
 }
 
-.testimonios__comilla {
-  font-family: 'Playfair Display', serif;
-  font-size: 5rem;
-  color: var(--color-primario);
-  line-height: 0;
-  display: block;
-  margin-bottom: 1rem;
-  opacity: 0.6;
-}
 
 .testimonios__blockquote {
   margin: 0;
   border: none;
   padding: 0;
+    max-width: 500px;
 }
 
 .testimonios__comentario {
+  margin-top: 1rem;
   font-family: 'Lato', sans-serif;
   font-size: 1rem;
-  color: rgba(245, 239, 230, 0.88);
+  color: var(--color-oscuro);
   line-height: 1.8;
-  font-style: italic;
-  font-weight: 300;
-  margin-bottom: 1.2rem;
+  font-style: normal;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  max-width: 480px;
 }
 
 /* ── Autor ── */
 .testimonios__autor {
+  margin-top: 2rem;
   display: flex;
   align-items: center;
-  gap: 1rem;
-  flex-wrap: wrap;
+  gap: 0.8rem;
+  flex-wrap: flex-start;
 }
 
 .testimonios__nombre {
   font-family: 'Playfair Display', serif;
   font-style: normal;
   font-size: 0.95rem;
-  color: var(--color-marfil);
+  color: var(--color-oscuro);
 }
 
 /* ── Estrellas ── */
@@ -113,7 +110,7 @@
 }
 
 .testimonios__estrella--vacia {
-  color: rgba(255, 255, 255, 0.2);
+  color: var(--color-suave);
 }
 
 /* ── Puntos ── */
@@ -128,7 +125,7 @@
   height: 8px;
   border-radius: 50%;
   border: none;
-  background: rgba(235, 212, 203, 0.3);
+  background:var(--color-suave);
   cursor: pointer;
   padding: 0;
   transition: all 0.3s ease;

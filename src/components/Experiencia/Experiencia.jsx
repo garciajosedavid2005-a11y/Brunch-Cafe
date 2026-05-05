@@ -21,7 +21,7 @@ const Experiencia = () => {
         {experiencia.map((item) => (
           <li key={item.id} className="experiencia__item">
             <span className="experiencia__icono" aria-hidden="true">
-              {item.icono}
+              <i className={`fi-${item.icono}`}></i>
             </span>
             <div className="experiencia__item-cuerpo">
               <strong className="experiencia__item-titulo">{item.titulo}</strong>
