@@ -9,6 +9,8 @@ import "./Experiencia.css";
 
 const Experiencia = () => {
   return (
+  <div className="experiencia-wrap">
+
     <div className="experiencia">
       <div className="experiencia__divisor" aria-hidden="true">
         <span className="experiencia__linea" />
@@ -30,6 +32,18 @@ const Experiencia = () => {
           </li>
         ))}
       </ul>
+    </div>
+    {/* Imagen pegada al card con degradado */}
+      <div className="experiencia__imagen-wrap">
+        <img
+          src="/imagenes/experiencia.png"
+          alt="Ambiente del café"
+          className="experiencia__imagen"
+          loading="lazy"
+        />
+        <div className="experiencia__degradado" aria-hidden="true" />
+      </div>
+
     </div>
   );
 };

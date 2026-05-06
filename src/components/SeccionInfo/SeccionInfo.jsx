@@ -7,10 +7,10 @@ const SeccionInfo = () => {
     <section className="seccion-info" id="info">
       <div className="grid-container">
         <div className="grid-x grid-margin-x">
-          <div className="cell small-12 medium-6">
+          <div className="cell small-12 medium-7">
             <Experiencia />
           </div>
-          <div className="cell small-12 medium-6">
+          <div className="cell small-12 medium-5">
             <Testimonios />
           </div>
         </div>
