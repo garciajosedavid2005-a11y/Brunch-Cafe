@@ -2,11 +2,47 @@
    Experiencia.css
    ════════════════════════════════ */
 
-.experiencia {
-  padding: 2rem;
-  background: var(--color-marfil);
+.experiencia-wrap {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+  max-width: 900px;
   border-radius: 12px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.experiencia {
+  flex: 1;
+  padding: 2.5rem;
+  background: var(--color-marfil);
+  border-radius: 0;
+}
+
+.experiencia__imagen-wrap {
+  position: relative;
+  flex:1;
+  width: auto;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.experiencia__imagen {
+  width: 100%;
   height: 100%;
+  object-fit: cover;
+  display: block;
+  object-position: 70%;
+}
+
+.experiencia__degradado {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    var(--color-marfil) 0%,
+    transparent 50%
+  );
 }
 
 /* ── Divisor ── */
@@ -81,4 +117,11 @@
   color: var(--color-medio);
   line-height: 1.55;
   margin: 0;
+}
+
+/* ── Responsive ── */
+@media screen and (max-width: 768px) {
+  .experiencia__imagen-wrap {
+    display: none;
+  }
 }

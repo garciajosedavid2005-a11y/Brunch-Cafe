@@ -64,11 +64,11 @@
   },
   {
     "id": 8,
-    "nombre": "Cheesecake de frutos rojos",
-    "descripcion": "Suave cheesecake cremoso con coulis de frutos rojos y frutas frescas.",
-    "precio": "0.000",
+    "nombre": "Volcan de chocolate con helado",
+    "descripcion": "Delicioso volcán de chocolate con helado de vainilla.",
+    "precio": "$18.000",
     "categoria": "Postres",
-    "imagen": null,
+    "imagen": "/imagenes/menu/volcan-chocolate.png",
     "destacado": true
   }
 
