@@ -1,21 +1,25 @@
 /* ════════════════════════════════
-   Hero.css — Carrusel principal
-   ════════════════════════════════ */
+   HERO — Carrusel principal
+════════════════════════════════ */
 
 .hero {
   position: relative;
+
   width: 100%;
   height: 90vh;
   min-height: 500px;
   max-height: 720px;
+
   overflow: hidden;
   background: var(--color-oscuro);
 }
 
-/* ── Fondo ── */
+/* ───────── Fondo ───────── */
+
 .hero__fondo {
   position: absolute;
   inset: 0;
+
   transition: opacity 0.4s ease;
 }
 
@@ -23,24 +27,27 @@
   opacity: 0;
 }
 
-.hero__imagen {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* ── Placeholder (sin imagen) ── */
+.hero__imagen,
 .hero__placeholder {
   width: 100%;
   height: 100%;
-  background: var(--color-oscuro);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+}
+
+.hero__imagen {
+  object-fit: cover;
+}
+
+/* ───────── Placeholder ───────── */
+
+.hero__placeholder {
+  display: grid;
+  place-items: center;
   gap: 0.5rem;
+
+  background: var(--color-oscuro);
   border: 2px dashed var(--color-medio);
+
+  text-align: center;
 }
 
 .hero__placeholder-icono {
@@ -49,43 +56,51 @@
 }
 
 .hero__placeholder-etiqueta {
-  font-family: 'Lato', sans-serif;
-  font-size: 1.1rem;
+  margin: 0;
+
+  font: 1.1rem var(--fuente-sans);
   color: var(--color-fondo);
   opacity: 0.6;
-  margin: 0;
 }
 
 .hero__placeholder-pista {
-  font-family: monospace;
-  font-size: 0.8rem;
+  margin: 0;
+
+  font: 0.8rem monospace;
   color: var(--color-suave);
   opacity: 0.7;
-  margin: 0;
 }
 
-/* ── Overlay ── */
+/* ───────── Overlay ───────── */
+
 .hero__overlay {
   position: absolute;
   inset: 0;
+  z-index: 1;
+
   background: linear-gradient(
     135deg,
-    rgba(44, 7, 3, 0.80) 0%,
-    rgba(44, 7, 3, 0.40) 60%,
+    rgba(44, 7, 3, 0.8) 0%,
+    rgba(44, 7, 3, 0.4) 60%,
     transparent 100%
   );
-  z-index: 1;
 }
 
-/* ── Contenido (texto + botones) ── */
+/* ───────── Contenido ───────── */
+
 .hero__contenido {
   position: absolute;
   inset: 0;
   z-index: 2;
+
   display: flex;
   align-items: center;
+
   padding-top: 70px;
-  transition: opacity 0.4s ease, transform 0.4s ease;
+
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
 }
 
 .hero__contenido--oculto {
@@ -102,44 +117,54 @@
   max-width: 580px;
 }
 
+/* ───────── Tipografía ───────── */
+
 .hero__titulo {
-  font-family: var(--fuente-decorativa);
-  font-size: clamp(2.5rem, 5vw, 4rem); 
-  font-style: normal;                
-  font-weight: 400;                  
-  color: var(--color-marfil);
-  line-height: 1.2;
   margin-bottom: 1rem;
+
+  font-family: var(--fuente-decorativa);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 400;
+  line-height: 1.2;
+
+  color: var(--color-marfil);
+
   text-shadow: 0 2px 20px rgba(44, 7, 3, 0.5);
 }
 
 .hero__subtitulo {
-  font-family: 'Lato', sans-serif;
-  font-size: 1.05rem;
-  color: var(--color-fondo);
-  font-weight: 300;
-  line-height: 1.65;
   margin-bottom: 1.8rem;
+
+  font: 300 1.05rem/1.65 var(--fuente-sans);
+  color: var(--color-fondo);
 }
 
-/* ── Botones ── */
+/* ───────── Botones ───────── */
+
 .hero__acciones {
   display: flex;
-  gap: 1rem;
   flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .hero__boton {
-  font-family: 'Lato', sans-serif;
-  font-size: 0.85rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  display: inline-block;
+
   padding: 0.7rem 1.8rem;
   border-radius: 2px;
+
+  font: 0.85rem var(--fuente-sans);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   text-decoration: none;
-  transition: all 0.25s ease;
-  display: inline-block;
+
   cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .hero__boton:hover {
@@ -147,23 +172,27 @@
 }
 
 .hero__boton--primario {
+  border: 1.5px solid var(--color-primario);
+
   background: var(--color-primario);
   color: var(--color-marfil);
-  border: 1.5px solid var(--color-primario);
 }
 
 .hero__boton--primario:hover {
+  transform: translateY(-2px);
+
   background: var(--color-medio);
   border-color: var(--color-medio);
-  color: var(--color-marfil) !important;
-  transform: translateY(-2px);
+
   box-shadow: 0 6px 20px rgba(137, 6, 32, 0.4);
+  color: var(--color-marfil) !important;
 }
 
 .hero__boton--contorno {
+  border: 1.5px solid var(--color-fondo);
+
   background: transparent;
   color: var(--color-marfil);
-  border: 1.5px solid var(--color-fondo);
 }
 
 .hero__boton--contorno:hover {
@@ -172,42 +201,55 @@
   color: var(--color-marfil) !important;
 }
 
-/* ── Wave ── */
+/* ───────── Ola ───────── */
+
 .hero__ola {
   position: absolute;
+  right: 0;
   bottom: -2px;
   left: 0;
-  right: 0;
   z-index: 3;
-  line-height: 0;
+
   overflow: hidden;
+  line-height: 0;
 }
 
 .hero__ola svg {
+  display: block;
+
   width: 100%;
   height: 100px;
-  display: block;
 }
 
-/* ── Flechas ── */
+/* ───────── Flechas ───────── */
+
 .hero__flecha {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
   z-index: 4;
+
   width: 46px;
-  height: 46px;
-  border-radius: 50%;
+  aspect-ratio: 1;
+
+  display: grid;
+  place-items: center;
+
   border: 1.5px solid rgba(235, 212, 203, 0.35);
+  border-radius: 50%;
+
   background: rgba(44, 7, 3, 0.35);
   color: var(--color-marfil);
+
   font-size: 1.2rem;
+
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.25s ease;
+
+  transform: translateY(-50%);
   backdrop-filter: blur(4px);
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease;
 }
 
 .hero__flecha:hover {
@@ -215,47 +257,68 @@
   border-color: var(--color-primario);
 }
 
-.hero__flecha--anterior { left: 1.2rem; }
-.hero__flecha--siguiente { right: 1.2rem; }
+.hero__flecha--anterior {
+  left: 1.2rem;
+}
 
-/* ── Puntos de navegación ── */
+.hero__flecha--siguiente {
+  right: 1.2rem;
+}
+
+/* ───────── Puntos ───────── */
+
 .hero__puntos {
   position: absolute;
   bottom: 80px;
   left: 50%;
-  transform: translateX(-50%);
+  z-index: 4;
+
   display: flex;
   gap: 10px;
-  z-index: 4;
+
+  transform: translateX(-50%);
 }
 
 .hero__punto {
   width: 9px;
   height: 9px;
-  border-radius: 50%;
-  border: none;
-  background: rgba(235, 212, 203, 0.4);
-  cursor: pointer;
+
   padding: 0;
-  transition: all 0.3s ease;
+  border: 0;
+  border-radius: 50%;
+
+  background: rgba(235, 212, 203, 0.4);
+
+  cursor: pointer;
+
+  transition:
+    width 0.3s ease,
+    border-radius 0.3s ease,
+    background 0.3s ease;
 }
 
 .hero__punto--activo {
-  background: var(--color-primario);
   width: 26px;
   border-radius: 4px;
+
+  background: var(--color-primario);
 }
+
+/* ───────── Variante pequeña ───────── */
 
 .hero--pequeño {
-    text-align: center;
-    height: 150vh;
-    min-height: 200px;
-    max-height: 280px;
-    padding-top: 70px;
+  height: 150vh;
+  min-height: 200px;
+  max-height: 280px;
+
+  padding-top: 70px;
+
+  text-align: center;
 }
 
-/* ── Responsive ── */
-@media screen and (max-width: 640px) {
+/* ───────── Responsive ───────── */
+
+@media (max-width: 640px) {
   .hero {
     height: 85vh;
   }
