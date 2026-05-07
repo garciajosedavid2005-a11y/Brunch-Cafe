@@ -7,11 +7,14 @@
   flex-direction: column;
   align-items: flex-start;
 
-  height: 100%;
-  padding: 1.3rem 1rem 0;
+  padding: 4rem 1rem;
 
   border-radius: 12px;
   text-align: left;
+}
+
+.testimonios-wrap {
+  width: 100%;
 }
 
 /* ───────── Divisor ───────── */
@@ -51,14 +54,16 @@
 /* ───────── Comentario ───────── */
 
 .testimonios__cuerpo {
+  will-change: opacity, transform;
+
   transition:
-    opacity 0.35s ease,
-    transform 0.35s ease;
+    opacity 0.4s ease,
+    transform 0.4s ease;
 }
 
 .testimonios__cuerpo--oculto {
   opacity: 0;
-  transform: translateY(8px);
+  transform: translateY(14px);
 }
 
 .testimonios__cuerpo--visible {

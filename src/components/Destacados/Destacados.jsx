@@ -1,77 +1,189 @@
-import { useState, useEffect, useCallback } from "react";
+import {
+  useState,
+  useEffect,
+  useCallback,
+  useMemo,
+} from "react";
+
 import menu from "../../data/menu.json";
+
 import TarjetaDestacado from "./TarjetaDestacado";
+
 import useAnimacionEntrada from "../../hooks/useAnimacionEntrada";
+
 import "./Destacados.css";
 
+/* ════════════════════════════════
+   Configuración
+════════════════════════════════ */
+
 const TARJETAS_VISIBLES = 4;
-const INTERVALO_AUTO = 3000;
+const AUTOPLAY_MS = 3000;
+
+/* ════════════════════════════════
+   Componente principal
+════════════════════════════════ */
 
 const Destacados = () => {
-  const refEncabezado = useAnimacionEntrada();
-  const refSlider = useAnimacionEntrada();
-  const destacados = menu.filter((producto) => producto.destacado);
-  const [indiceActual, setIndiceActual] = useState(0);
+  const refEncabezado =
+    useAnimacionEntrada();
+
+  const refSlider =
+    useAnimacionEntrada();
+
+  /* ───────── Datos ───────── */
+
+  const destacados = useMemo(
+    () =>
+      menu.filter(
+        ({ destacado }) => destacado
+      ),
+    []
+  );
+
+  const total = destacados.length;
+
+  const productosLoop = useMemo(
+    () => [...destacados, ...destacados],
+    [destacados]
+  );
+
+  /* ───────── Estado ───────── */
+
+  const [indiceActual, setIndiceActual] =
+    useState(0);
+
+  /* ───────── Navegación ───────── */
 
   const siguiente = useCallback(() => {
-    setIndiceActual((prev) => (prev + 1) % destacados.length);
-  }, [destacados.length]);
+    setIndiceActual((prev) =>
+      (prev + 1) % total
+    );
+  }, [total]);
 
   const anterior = useCallback(() => {
-    setIndiceActual((prev) => (prev - 1 + destacados.length) % destacados.length);
-  }, [destacados.length]);
+    setIndiceActual((prev) =>
+      (prev - 1 + total) % total
+    );
+  }, [total]);
+
+  /* ───────── Autoplay ───────── */
 
   useEffect(() => {
-    const temporizador = setInterval(siguiente, INTERVALO_AUTO);
-    return () => clearInterval(temporizador);
+    const intervalo = setInterval(
+      siguiente,
+      AUTOPLAY_MS
+    );
+
+    return () =>
+      clearInterval(intervalo);
   }, [siguiente]);
 
-  if (destacados.length === 0) return null;
-  const productosLoop = [...destacados, ...destacados];
+  /* ───────── Early return ───────── */
+
+  if (!total) return null;
+
+  /* ───────── Transform ───────── */
+
+  const desplazamiento =
+    indiceActual *
+    (100 / TARJETAS_VISIBLES);
 
   return (
-    <section className="destacados" id="destacados">
+    <section
+      id="destacados"
+      className="destacados"
+    >
+
       <div className="grid-container">
-        <div ref={refEncabezado} className="destacados__encabezado animar-subir">
-          <div className="destacados__divisor" aria-hidden="true">
+
+        {/* Encabezado */}
+
+        <header
+          ref={refEncabezado}
+          className="destacados__encabezado animar-subir"
+        >
+
+          <div
+            aria-hidden="true"
+            className="destacados__divisor"
+          >
             <span className="destacados__linea" />
-            <span className="destacados__icono">✦</span>
+
+            <span className="destacados__icono">
+              ✦
+            </span>
+
             <span className="destacados__linea" />
           </div>
-          <h2 className="destacados__titulo">Nuestros Destacados</h2>
-          <p className="destacados__subtitulo">Lo más pedido por nuestros clientes</p>
-        </div>
-        <div ref={refSlider} className="destacados__slider animar-subir retraso-2">
+
+          <h2 className="destacados__titulo">
+            Nuestros Destacados
+          </h2>
+
+          <p className="destacados__subtitulo">
+            Lo más pedido por nuestros clientes
+          </p>
+
+        </header>
+
+        {/* Slider */}
+
+        <div
+          ref={refSlider}
+          className="destacados__slider animar-subir retraso-2"
+        >
+
+          {/* Flecha anterior */}
+
           <button
-            className="destacados__flecha destacados__flecha--anterior"
             onClick={anterior}
             aria-label="Producto anterior"
+            className="destacados__flecha destacados__flecha--anterior"
           >
             &#8592;
           </button>
 
+          {/* Ventana */}
+
           <div className="destacados__ventana">
+
             <div
               className="destacados__pista"
-              style={{ transform: `translateX(-${indiceActual * (100 / TARJETAS_VISIBLES)}%)` }}
+              style={{
+                transform: `translateX(-${desplazamiento}%)`,
+              }}
             >
-              {productosLoop.map((producto, i) => (
-                <div key={`${producto.id}-${i}`} className="destacados__celda">
-                  <TarjetaDestacado producto={producto} />
-                </div>
-              ))}
+              {productosLoop.map(
+                (producto, i) => (
+                  <div
+                    key={`${producto.id}-${i}`}
+                    className="destacados__celda"
+                  >
+                    <TarjetaDestacado
+                      producto={producto}
+                    />
+                  </div>
+                )
+              )}
             </div>
+
           </div>
 
+          {/* Flecha siguiente */}
+
           <button
-            className="destacados__flecha destacados__flecha--siguiente"
             onClick={siguiente}
             aria-label="Producto siguiente"
+            className="destacados__flecha destacados__flecha--siguiente"
           >
             &#8594;
           </button>
+
         </div>
+
       </div>
+
     </section>
   );
 };
