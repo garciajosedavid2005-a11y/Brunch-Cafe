@@ -1,20 +1,35 @@
+import { useState, useEffect, useCallback, useMemo } from "react";
 
-
-import { useState, useEffect, useCallback } from "react";
 import testimonios from "../../data/testimonios.json";
 import useAnimacionEntrada from "../../hooks/useAnimacionEntrada";
 
 import "./Testimonios.css";
 
-/* ── Estrellas ── */
+/* ════════════════════════════════
+   Configuración
+════════════════════════════════ */
+
+const TRANSICION_MS = 350;
+const AUTOPLAY_MS = 6000;
+
+/* ════════════════════════════════
+   Estrellas
+════════════════════════════════ */
+
 const Estrellas = ({ calificacion }) => (
-  
-  <div className="testimonios__estrellas" aria-label={calificacion + " de 5 estrellas"}>
+  <div
+    className="testimonios__estrellas"
+    aria-label={`${calificacion} de 5 estrellas`}
+  >
     {Array.from({ length: 5 }, (_, i) => (
       <span
         key={i}
-        className={"testimonios__estrella " + (i < calificacion ? "testimonios__estrella--llena" : "testimonios__estrella--vacia")}
         aria-hidden="true"
+        className={`testimonios__estrella ${
+          i < calificacion
+            ? "testimonios__estrella--llena"
+            : "testimonios__estrella--vacia"
+        }`}
       >
         ★
       </span>
@@ -22,71 +37,145 @@ const Estrellas = ({ calificacion }) => (
   </div>
 );
 
+/* ════════════════════════════════
+   Componente principal
+════════════════════════════════ */
+
 const Testimonios = () => {
   const ref = useAnimacionEntrada();
-  const [actual, setActual] = useState(0);
-  const [desvaneciendo, setDesvaneciendo] = useState(false);
 
-  const irA = useCallback((indice) => {
-    setDesvaneciendo(true);
-    setTimeout(() => {
-      setActual(indice);
-      setDesvaneciendo(false);
-    }, 350);
-  }, []);
+  const [actual, setActual] = useState(0);
+  const [animando, setAnimando] = useState(false);
+
+  const total = testimonios.length;
+
+  /* ───────── Navegación ───────── */
+
+  const cambiarTestimonio = useCallback(
+    (indice) => {
+      if (animando) return;
+
+      setAnimando(true);
+
+      setTimeout(() => {
+        setActual(indice);
+
+        requestAnimationFrame(() => {
+          setAnimando(false);
+        });
+      }, TRANSICION_MS);
+    },
+    [animando]
+  );
 
   const siguiente = useCallback(() => {
-    irA((actual + 1) % testimonios.length);
-  }, [actual, irA]);
+    cambiarTestimonio((actual + 1) % total);
+  }, [actual, total, cambiarTestimonio]);
+
+  /* ───────── Autoplay ───────── */
 
   useEffect(() => {
-    const temporizador = setInterval(siguiente, 6000);
-    return () => clearInterval(temporizador);
-  }, [siguiente]);
+    if (animando) return;
 
-  const testimonio = testimonios[actual];
+    const intervalo = setInterval(
+      siguiente,
+      AUTOPLAY_MS
+    );
+
+    return () => clearInterval(intervalo);
+  }, [siguiente, animando]);
+
+  /* ───────── Testimonio actual ───────── */
+
+  const testimonio = useMemo(
+    () => testimonios[actual],
+    [actual]
+  );
 
   return (
-    <div ref={ref} className="testimonios animar-subir">
+  <section
+    ref={ref}
+    className="testimonios-wrap animar-subir"
+  >
     <div className="testimonios">
-      <div className="testimonios__divisor" aria-hidden="true">
+
+      {/* Encabezado */}
+
+      <div
+        className="testimonios__divisor"
+        aria-hidden="true"
+      >
         <span className="testimonios__linea" />
-        <span className="testimonios__icono-divisor">✦</span>
+        <span className="testimonios__icono-divisor">
+          ✦
+        </span>
         <span className="testimonios__linea" />
       </div>
-      <h2 className="testimonios__titulo">Lo que dicen nuestros clientes</h2>
+
+      <h2 className="testimonios__titulo">
+        Lo que dicen nuestros clientes
+      </h2>
 
       {/* Comentario */}
+
       <div
-        className={"testimonios__cuerpo " + (desvaneciendo ? "testimonios__cuerpo--oculto" : "testimonios__cuerpo--visible")}
         aria-live="polite"
         aria-atomic="true"
+        className={`testimonios__cuerpo ${
+          animando
+            ? "testimonios__cuerpo--oculto"
+            : "testimonios__cuerpo--visible"
+        }`}
       >
         <blockquote className="testimonios__blockquote">
-          <p className="testimonios__comentario">"{testimonio.comentario}"</p>
+
+          <p className="testimonios__comentario">
+            "{testimonio.comentario}"
+          </p>
+
           <footer className="testimonios__autor">
-            <cite className="testimonios__nombre">— {testimonio.autor}</cite>
-            <Estrellas calificacion={testimonio.calificacion} />
+
+            <cite className="testimonios__nombre">
+              — {testimonio.autor}
+            </cite>
+
+            <Estrellas
+              calificacion={
+                testimonio.calificacion
+              }
+            />
+
           </footer>
+
         </blockquote>
       </div>
 
-      {/* Puntos de navegación */}
-      <div className="testimonios__puntos" role="tablist" aria-label="Navegación de testimonios">
-        {testimonios.map((t, i) => (
+      {/* Navegación */}
+
+      <div
+        className="testimonios__puntos"
+        role="tablist"
+        aria-label="Navegación de testimonios"
+      >
+        {testimonios.map(({ id, autor }, i) => (
           <button
-            key={t.id}
-            className={"testimonios__punto " + (i === actual ? "testimonios__punto--activo" : "")}
-            onClick={() => irA(i)}
+            key={id}
             role="tab"
             aria-selected={i === actual}
-            aria-label={"Testimonio de " + t.autor}
+            aria-label={`Testimonio de ${autor}`}
+            className={`testimonios__punto ${
+              i === actual
+                ? "testimonios__punto--activo"
+                : ""
+            }`}
+            onClick={() =>
+              cambiarTestimonio(i)
+            }
           />
         ))}
       </div>
     </div>
-    </div>
-    
+    </section>
   );
 };
 
