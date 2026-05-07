@@ -246,6 +246,14 @@
   border-radius: 4px;
 }
 
+.hero--pequeño {
+    text-align: center;
+    height: 150vh;
+    min-height: 200px;
+    max-height: 280px;
+    padding-top: 70px;
+}
+
 /* ── Responsive ── */
 @media screen and (max-width: 640px) {
   .hero {
