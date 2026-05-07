@@ -47,8 +47,14 @@
     background: var(--color-marfil);
     border-radius: 8px;
     padding: 2rem;
-    box-shadow: 0 4px 15px var(--color-oscuro);
+    box-shadow: 0 4px 15px var(--color-sombra);
     text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ubicacion-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px var(--color-oscuro);
 }
 
 .ubicacion-titulo {

@@ -43,6 +43,7 @@ const FormularioReservas = () => {
                                         id="fecha"
                                         name="fecha"
                                         min={hoy}
+                                        onKeyDown={(e) => e.preventDefault()}
                                     />
 
                                     { /* Campo Hora de Reserva*/ }
