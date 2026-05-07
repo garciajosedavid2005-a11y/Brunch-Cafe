@@ -2,10 +2,13 @@
 
 import { useState, useEffect, useCallback } from "react";
 import testimonios from "../../data/testimonios.json";
+import useAnimacionEntrada from "../../hooks/useAnimacionEntrada";
+
 import "./Testimonios.css";
 
 /* ── Estrellas ── */
 const Estrellas = ({ calificacion }) => (
+  
   <div className="testimonios__estrellas" aria-label={calificacion + " de 5 estrellas"}>
     {Array.from({ length: 5 }, (_, i) => (
       <span
@@ -20,6 +23,7 @@ const Estrellas = ({ calificacion }) => (
 );
 
 const Testimonios = () => {
+  const ref = useAnimacionEntrada();
   const [actual, setActual] = useState(0);
   const [desvaneciendo, setDesvaneciendo] = useState(false);
 
@@ -43,6 +47,7 @@ const Testimonios = () => {
   const testimonio = testimonios[actual];
 
   return (
+    <div ref={ref} className="testimonios animar-subir">
     <div className="testimonios">
       <div className="testimonios__divisor" aria-hidden="true">
         <span className="testimonios__linea" />
@@ -80,6 +85,8 @@ const Testimonios = () => {
         ))}
       </div>
     </div>
+    </div>
+    
   );
 };
 

@@ -19,5 +19,27 @@ body {
   padding-top: 64px;
 
 }
+/* ════════════════════════════════
+   Animaciones de entrada
+   ════════════════════════════════ */
 
+.animar-subir, .animar-izquierda, .animar-derecha, .animar-escala {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.7s ease, transform 0.7s ease, visibility 0.7s;
+  will-change: transform, opacity; /* Ayuda al navegador a renderizar suave */
+}
 
+.animar-subir { transform: translateY(30px); }
+.animar-izquierda { transform: translateX(-30px); }
+.animar-derecha { transform: translateX(30px); }
+.animar-escala { transform: scale(0.95); }
+
+.animar-subir.visible, 
+.animar-izquierda.visible, 
+.animar-derecha.visible, 
+.animar-escala.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(0) scale(1);
+}
