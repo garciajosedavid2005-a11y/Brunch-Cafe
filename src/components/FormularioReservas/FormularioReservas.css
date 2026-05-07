@@ -10,11 +10,11 @@
 
 .formulario-seccion {
     padding: 3rem 0;
-    background-color: var(--color-fondo);
+    background-color: transparent;
 }
 
 .formulario-card {
-    background: #ffffff;
+    background: var(--color-blanco);
     border-radius: 8px;
     padding: 2rem 2.5rem;
     box-shadow: 0 4px 20px rgba(44, 7, 3, 0.1);

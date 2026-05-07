@@ -7,7 +7,7 @@ import "./Navbar.css";
 
 const Navbar = () => {
     const ubicacion = useLocation();
-    const esTransparente = ubicacion.pathname === "/"|| ubicacion.pathname === "/reservas";
+    const esTransparente = ubicacion.pathname === "/"|| ubicacion.pathname === "/reservas" || ubicacion.pathname === "/nosotros";
 
   return (
     <div className={"top-bar" + (esTransparente ? " top-bar--transparente" : "")}>

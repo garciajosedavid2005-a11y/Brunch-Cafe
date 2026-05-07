@@ -40,7 +40,7 @@ const BotonesDiapositiva = ({ botones }) => {
 };
 
 /* ─── Componente principal ─── */
-const Hero = () => {
+const Hero = ({estatico = false, titulo, colorFondo, centrado = false}) => {
   const [actual, setActual] = useState(0);
   const [animando, setAnimando] = useState(false);
 
@@ -70,6 +70,24 @@ const Hero = () => {
   }, [siguiente]);
 
   const diapositiva = DIAPOSITIVAS[actual];
+
+  /* ─── Modo estático ─── */
+  if (estatico) {
+    return (
+      <section className="hero hero--pequeño" style={{ background: colorFondo || 'var(--color-primario)' }}>
+        <div className="hero__contenido grid-container hero__contenido--visible">
+          <div className="hero__texto" style={{ textAlign: 'center', width: '100%', maxWidth: '100%' }}>
+            {titulo && <h1 className="hero__titulo">{titulo}</h1>}
+          </div>
+        </div>
+        <div className="hero__ola" aria-hidden="true">
+          <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,60 C540,100 900,20 1440,80 L1440,100 L0,100 Z" fill="var(--color-fondo)" />
+          </svg>
+        </div>
+      </section>
+    )
+  }
 
   return (
     <section className="hero" aria-label="Carrusel principal">
