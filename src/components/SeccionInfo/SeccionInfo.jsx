@@ -1,9 +1,13 @@
 import Experiencia from "../Experiencia/Experiencia";
 import Testimonios from "../Testimonios/Testimonios";
+import useAnimacionEntrada from "../../hooks/useAnimacionEntrada";
 import "./SeccionInfo.css";
 
 const SeccionInfo = () => {
+  const ref = useAnimacionEntrada();
   return (
+  <section ref={ref} className="seccion-info animar-subir">
+
     <section className="seccion-info" id="info">
       <div className="grid-container">
         <div className="grid-x grid-margin-x">
@@ -16,6 +20,7 @@ const SeccionInfo = () => {
         </div>
       </div>
     </section>
+  </section>
   );
 };
 

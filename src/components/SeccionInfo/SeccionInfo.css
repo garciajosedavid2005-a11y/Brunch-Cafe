@@ -1,6 +1,6 @@
 .seccion-info {
   background-color: var(--color-fondo);
-  padding: 5rem 0;
+  padding: 3rem 0;
 }
 
 @media screen and (max-width: 640px) {
