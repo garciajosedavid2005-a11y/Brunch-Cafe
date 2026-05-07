@@ -1,7 +1,7 @@
 import "./HistoriaNosotros.css"
 import historia1 from "../../assets/historia1.jpg"
-import historia2 from "../../assets/historia2.jpg"
-import historia3 from "../../assets/historia3.jpg"
+import historia2 from "../../assets/historia2.webp"
+import historia3 from "../../assets/historia3.webp"
 
 const HistoriaNosotros = () => {
     return (
