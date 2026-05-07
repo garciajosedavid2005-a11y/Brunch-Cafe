@@ -1,13 +1,14 @@
 /* ════════════════════════════════
-   Destacados.css
-   ════════════════════════════════ */
+   DESTACADOS
+════════════════════════════════ */
 
 .destacados {
-  background-color: var(--color-fondo);
+  background: var(--color-fondo);
   padding: 2rem 0;
 }
 
-/* ── Encabezado ── */
+/* ───────── Encabezado ───────── */
+
 .destacados__encabezado {
   text-align: center;
   margin-bottom: 2.5rem;
@@ -24,14 +25,19 @@
 .destacados__linea {
   width: 50px;
   height: 1px;
-  background-color: var(--color-primario);
+  background: var(--color-primario);
   opacity: 0.5;
-  display: block;
 }
 
 .destacados__icono {
-  color: var(--color-primario);
   font-size: 0.65rem;
+  color: var(--color-primario);
+}
+
+.destacados__titulo,
+.experiencia__titulo,
+.testimonios__comentario {
+  text-wrap: balance;
 }
 
 .destacados__titulo {
@@ -42,55 +48,55 @@
 }
 
 .destacados__subtitulo {
-  font-family: 'Lato', sans-serif;
-  font-size: 1rem;
-  color: var(--color-medio);
-  font-weight: 300;
+  font: 300 1rem 'Lato', sans-serif;
   letter-spacing: 0.05em;
+  color: var(--color-medio);
 }
 
-/* ── Slider ── */
+/* ───────── Slider ───────── */
+
 .destacados__slider {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-/* Ventana — recorta lo que no se ve */
 .destacados__ventana {
   flex: 1;
   overflow: hidden;
 }
 
-/* Pista — contiene todas las tarjetas en fila */
 .destacados__pista {
   display: flex;
   transition: transform 0.5s ease;
 }
 
-/* Cada celda ocupa exactamente 1/4 de la pista */
 .destacados__celda {
   flex: 0 0 25%;
-  padding: 0 0.5rem;
+  padding-inline: 0.5rem;
   box-sizing: border-box;
 }
 
-/* ── Flechas ── */
+/* ───────── Flechas ───────── */
+
 .destacados__flecha {
-  flex-shrink: 0;
   width: 32px;
-  height: 32px;
-  border-radius: 50%;
+  aspect-ratio: 1;
   border: 1px solid var(--color-suave);
+  border-radius: 50%;
   background: transparent;
   color: var(--color-suave);
   font-size: 0.9rem;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.25s ease;
+
+  display: grid;
+  place-items: center;
+
   opacity: 0.5;
+  transition:
+    opacity 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
 }
 
 .destacados__flecha:hover {
@@ -99,53 +105,65 @@
   color: var(--color-primario);
 }
 
-/* ── Tarjeta ── */
+/* ───────── Tarjeta ───────── */
+
 .tarjeta-destacado {
-  background: var(--color-marfil);
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 2px 16px var(--color-sombra);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  height: 100%;
+  position: relative;
   display: flex;
   flex-direction: column;
+  height: 100%;
+
+  overflow: hidden;
+  border-radius: 16px;
+  background: var(--color-marfil);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+
+  box-shadow: 0 10px 30px var(--color-sombra);
+
+  transition:
+    transform 0.5s cubic-bezier(0.25, 1, 0.5, 1),
+    box-shadow 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .tarjeta-destacado:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 36px var(--color-sombra);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px var(--color-sombra);
 }
 
-/* ── Imagen ── */
+/* ───────── Imagen ───────── */
+
 .tarjeta-destacado__imagen-wrap {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1;
 }
 
-.tarjeta-destacado__imagen {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.45s ease;
-}
-
-.tarjeta-destacado:hover .tarjeta-destacado__imagen {
-  transform: scale(1.06);
-}
-
-/* ── Placeholder ── */
+.tarjeta-destacado__imagen,
 .tarjeta-destacado__placeholder {
   width: 100%;
   height: 100%;
+}
+
+.tarjeta-destacado__imagen {
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.15, 0, 0.15, 1);
+}
+
+.tarjeta-destacado:hover .tarjeta-destacado__imagen {
+  transform: scale(1.08);
+}
+
+/* ───────── Placeholder ───────── */
+
+.tarjeta-destacado__placeholder {
+  display: grid;
+  place-items: center;
+  gap: 0.4rem;
+
+  min-height: 180px;
   background: var(--color-suave);
   opacity: 0.4;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.4rem;
-  min-height: 180px;
+  text-align: center;
 }
 
 .tarjeta-destacado__placeholder-icono {
@@ -153,78 +171,104 @@
 }
 
 .tarjeta-destacado__placeholder-texto {
-  font-family: 'Lato', sans-serif;
-  font-size: 0.8rem;
-  color: var(--color-oscuro);
   margin: 0;
+  font: 0.8rem 'Lato', sans-serif;
+  color: var(--color-oscuro);
 }
 
-/* ── Badge categoría ── */
+/* ───────── Categoría ───────── */
+
 .tarjeta-destacado__categoria {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 15px;
+  left: 15px;
+
+  padding: 5px 12px;
+  border-radius: 20px;
+
   background: var(--color-primario);
   color: var(--color-marfil);
-  font-family: 'Lato', sans-serif;
-  font-size: 0.7rem;
-  font-weight: 700;
+
+  font: 700 0.6rem 'Lato', sans-serif;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  padding: 3px 10px;
-  border-radius: 2px;
+
+  box-shadow: 0 4px 10px var(--color-sombra);
+  backdrop-filter: blur(4px);
 }
 
-/* ── Cuerpo ── */
+/* ───────── Cuerpo ───────── */
+
 .tarjeta-destacado__cuerpo {
-  padding: 1.1rem 1.2rem 1.2rem;
   display: flex;
   flex-direction: column;
-  flex: 1;
+  flex-grow: 1;
+
+  padding: 1.5rem;
 }
 
 .tarjeta-destacado__nombre {
+  margin-bottom: 0.7rem;
+
   font-family: 'Playfair Display', serif;
-  font-size: 1.05rem;
+  font-size: 1.25rem;
+  line-height: 1.2;
   color: var(--color-oscuro);
-  margin-bottom: 0.4rem;
-  line-height: 1.3;
 }
 
 .tarjeta-destacado__descripcion {
-  font-family: 'Lato', sans-serif;
-  font-size: 0.88rem;
-  color: var(--color-medio);
-  line-height: 1.55;
   flex: 1;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+
+  font: 0.9rem/1.6 'Lato', sans-serif;
+  color: var(--color-medio);
 }
 
-/* ── Pie ── */
+/* ───────── Pie ───────── */
+
 .tarjeta-destacado__pie {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   margin-top: auto;
+  padding-top: 1rem;
 }
 
 .tarjeta-destacado__precio {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.1rem;
-  font-weight: 700;
+  font: 700 1.1rem 'Playfair Display', serif;
   color: var(--color-primario);
 }
 
-/* ── Responsive ── */
-@media screen and (max-width: 1024px) {
+.tarjeta-destacado__link-texto {
+  margin-right: 5px;
+
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  opacity: 0;
+  transform: translateX(-10px);
+
+  transition: all 0.3s ease;
+}
+
+/* ───────── Responsive ───────── */
+
+@media (max-width: 1024px) {
   .destacados__celda {
-    flex: 0 0 50%;
+    flex-basis: 50%;
   }
 }
 
-@media screen and (max-width: 640px) {
+@media (max-width: 640px) {
   .destacados__celda {
-    flex: 0 0 100%;
+    flex-basis: 100%;
   }
 
   .destacados__flecha {
