@@ -26,6 +26,12 @@
   {
     "id": 3,
     "image": "/imagenes/slide3.jpg",
-    "overlay": true
+    "overlay": true,
+    "showText": true,
+    "title": "Ven con amigos o familia",
+    "subtitle": "Brunch Café es el lugar perfecto para compartir momentos especiales con tus seres queridos.",
+    "buttons": [
+      { "label": "Reservar", "href": "/reservas" }
+    ] 
   }
 ]
