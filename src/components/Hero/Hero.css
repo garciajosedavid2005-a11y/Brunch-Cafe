@@ -108,6 +108,11 @@
     transform 0.4s ease;
 }
 
+.hero__contenido--centrado {
+  justify-content: center;
+  text-align: center;
+}
+
 .hero__contenido--oculto {
   opacity: 0;
   transform: translateY(20px);
@@ -122,6 +127,10 @@
   max-width: 580px;
 }
 
+.hero__texto--centrado {
+  max-width: 100%;
+  text-align: center;
+}
 /* ───────── Tipografía ───────── */
 
 .hero__titulo {
