@@ -1,5 +1,5 @@
 import "./UbicacionNosotros.css"
-import localImg from "../../assets/local.webp"
+import localImg from "../../assets/local.png"
 import { FaMapMarkerAlt, FaClock } from 'react-icons/fa'
 
 const UbicacionNosotros = () => {
