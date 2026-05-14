@@ -1,0 +1,7 @@
+.carrito-pagina {
+    padding-top: 0;
+    min-height: 100vh;
+    margin-top: -64px !important;
+    box-sizing: content-box;
+    /*background-color: var(--color-marfil);*/
+}
