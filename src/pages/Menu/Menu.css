@@ -1,0 +1,127 @@
+.main-content{
+    padding: 0;
+}
+.menu-pagina {
+  min-height: 100vh;
+  background: var(--color-fondo);
+  padding: 4rem 2rem 5rem;
+  color: var(--color-oscuro);
+  font-family: sans-serif;
+  padding-top: 1rem;
+}
+
+.menu-hero {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  gap: 1rem;
+  max-width: 760px;
+  margin: 0 auto 3rem;
+}
+
+.menu-hero__titulo {
+  margin: 0;
+  font-family: var(--fuente-decorativa), serif;
+  font-size: clamp(4.5rem, 8vw, 7rem);
+  color: var(--color-primario);
+  letter-spacing: 0.02em;
+  line-height: 1;
+  font-weight: normal;
+}
+
+.menu-hero__subtitulo {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--color-oscuro);
+  opacity: 0.8;
+  max-width: 640px;
+}
+
+.menu-categorias {
+  margin-bottom: 3rem;
+  display: flex;
+  justify-content: center; 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;;
+}
+
+.menu-categorias__lista {
+  display: flex;
+  width: 100%;             
+  max-width: 1200px;       
+  justify-content: center; 
+  gap: 2rem;
+  list-style: none;          
+  background: transparent;  
+  margin: 0 auto 3rem;
+  box-shadow: none;        
+  padding: 0;         
+  border: none; 
+}
+
+.menu-categoria {
+  border: none;
+  background: transparent;
+  color: var(--color-oscuro);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0 0 0.4rem 0;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: color 0.25s ease;
+  position: relative;
+}
+
+.menu-categoria:hover,
+.menu-categoria--activa {
+  color: var(--color-primario);
+}
+
+.menu-categoria--activa::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--color-primario);
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1100px) {
+  .menu-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .menu-categorias {
+    justify-content: center;
+  }
+  .menu-categorias__lista {
+    padding: 1rem 1.5rem;
+    border-radius: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+  .menu-pagina {
+    padding: 2rem 1rem 3rem;
+  }
+}

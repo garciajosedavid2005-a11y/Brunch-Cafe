@@ -103,7 +103,7 @@ const Experiencia = () => {
 
         <img
           loading="lazy"
-          src="/imagenes/experiencia.png"
+          src="src/assets/imagenes/experiencia.png"
           alt="Ambiente del café"
           className="experiencia__imagen"
         />

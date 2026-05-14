@@ -1,7 +1,7 @@
 [
 {
   "id": 1,
-  "image": "/imagenes/slide1.jpg",
+  "image": "/src/assets/imagenes/slide1.jpg",
   "showText": true,
   "overlay": true,
   "title": "Bienvenido a Brunch Café",
@@ -14,7 +14,7 @@
 },
   {
     "id": 2,
-    "image": "/imagenes/slide2.jpg",
+    "image": "/src/assets/imagenes/slide2.jpg",
     "overlay": true,
     "showText": true,
     "title": "Disfruta de nuestro ambiente acogedor",
@@ -25,7 +25,7 @@
   },
   {
     "id": 3,
-    "image": "/imagenes/slide3.jpg",
+    "image": "/src/assets/imagenes/slide3.jpg",
     "overlay": true,
     "showText": true,
     "title": "Ven con amigos o familia",
