@@ -5,7 +5,7 @@
     "descripcion": "Huevos al gusto, con tocineta crujiente, tostadas artesanales y aguacate fresco",
     "precio": "$18.000",
     "categoria": "Desayunos",
-    "imagen": "/imagenes/menu/desayuno-clasico-gourmet.png",
+    "imagen": "/src/assets/menu/desayuno-clasico-gourmet.png",
     "destacado": true
   },
   {
@@ -14,7 +14,7 @@
     "descripcion": "Refrescante limonada natural con hierbabuena fresca y hielo artesanal.",
     "precio": "$8.000",
     "categoria": "Bebidas",
-    "imagen": "/imagenes/menu/limonada-hierbabuena.png",
+    "imagen": "/src/assets/menu/limonada-hierbabuena.png",
     "destacado": true
   },
   {
@@ -23,7 +23,7 @@
     "descripcion": "Tostadas artesanales con aguacate, huevos pochados, salmón ahumado y ensalada fresca.",
     "precio": "$28.000",
     "categoria": "Brunch",
-    "imagen": "/imagenes/menu/brunch-especial.png",
+    "imagen": "/src/assets/menu/brunch-especial.png",
     "destacado": true
   },
   {
@@ -32,7 +32,7 @@
     "descripcion": "Suave cheesecake cremoso con coulis de frutos rojos y frutas frescas.",
     "precio": "$16.000",
     "categoria": "Postres",
-    "imagen": "/imagenes/menu/cheesecake-frutos-rojos.png",
+    "imagen": "/src/assets/menu/cheesecake-frutos-rojos.png",
     "destacado": true
   },
   {
@@ -41,7 +41,7 @@
     "descripcion": "Pan artesanal con aguacate fresco, huevo pochado, ensalada y frutas.",
     "precio": "$20.000",
     "categoria": "Desayunos",
-    "imagen": "/imagenes/menu/tostada-aguacate.png",
+    "imagen": "/src/assets/menu/tostada-aguacate.png",
     "destacado": true
   },
   {
@@ -50,7 +50,7 @@
     "descripcion": "Café frío con leche cremosa, hielo y un toque suave de cacao.",
     "precio": "$11.000",
     "categoria": "Bebidas",
-    "imagen": "/imagenes/menu/latte-frio.png",
+    "imagen": "/src/assets/menu/latte-frio.png",
     "destacado": true
   },
   {
@@ -59,7 +59,7 @@
     "descripcion": "Huevos pochados sobre pan artesanal con salmón ahumado y salsa holandesa.",
     "precio": "$30.000",
     "categoria": "Brunch",
-    "imagen": "/imagenes/menu/huevos-benedictinos.png",
+    "imagen": "/src/assets/menu/huevos-benedictinos.png",
     "destacado": true
   },
   {
@@ -68,7 +68,7 @@
     "descripcion": "Delicioso volcán de chocolate con helado de vainilla.",
     "precio": "$18.000",
     "categoria": "Postres",
-    "imagen": "/imagenes/menu/volcan-chocolate.png",
+    "imagen": "/src/assets/menu/volcan-chocolate.png",
     "destacado": true
   }
 
