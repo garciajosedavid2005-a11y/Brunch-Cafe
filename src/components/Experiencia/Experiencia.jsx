@@ -8,12 +8,15 @@
 import experiencia from "../../data/experiencia.json";
 
 import useAnimacionEntrada from "../../hooks/useAnimacionEntrada";
+import { Leaf, Bean, Store } from "lucide-react";
 
 import "./Experiencia.css";
 
-/* ════════════════════════════════
-   Componente principal
-════════════════════════════════ */
+const iconMap = {
+  Leaf: Leaf,
+  Bean: Bean,
+  Store: Store,
+};
 
 const Experiencia = () => {
   const refTexto =
@@ -61,17 +64,14 @@ const Experiencia = () => {
               icono,
               titulo,
               descripcion,
-            }) => (
-              <li
-                key={id}
-                className="experiencia__item"
-              >
+            }) => {
+              const IconoComponente = iconMap[icono];
+              return (
 
-                <span
-                  aria-hidden="true"
-                  className="experiencia__icono"
-                >
-                  <i className={`fi-${icono}`} />
+                <li key={id} className="experiencia__item">
+                <span aria-hidden="true" className="experiencia__icono">
+                  {/* 4. Renderizamos el componente con sus props (tamaño y grosor de línea) */}
+                  {IconoComponente && <IconoComponente size={32} strokeWidth={1.5} />}
                 </span>
 
                 <div>
@@ -87,8 +87,8 @@ const Experiencia = () => {
                 </div>
 
               </li>
-            )
-          )}
+            );
+          })}
 
         </ul>
 

@@ -1,81 +1,170 @@
-.menu .active {
-    border-bottom: 2px solid var(--color-suave);
-    color: var(--color-suave);
-}
+/* =========================
+   NAVBAR
+========================= */
 
 .top-bar {
-  background-color: var(--color-fondo);
-  padding-top: 0;
-  position: static;
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
   z-index: 100;
+
   width: 100%;
-  transition: background 0.3s ease;
+  height: 90px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 1.5rem;
+
+  background: rgba(247, 231, 226, 0.7);
+
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+
+  transition:
+    background-color 0.3s ease,
+    backdrop-filter 0.3s ease;
 }
+
+/* =========================
+   TRANSPARENTE
+========================= */
+
+.top-bar--transparente {
+  position: absolute;
+
+  background: transparent;
+
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+
+  box-shadow: none;
+}
+
+/* =========================
+   FOUNDATION RESET
+========================= */
+
+.top-bar-left,
+.top-bar-right,
 .menu,
+.menu li,
+.menu li a,
 .menu-text {
-  background-color: transparent !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
 }
+
+/* =========================
+   LAYOUT
+========================= */
+
+.top-bar-left,
+.top-bar-right {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+/* =========================
+   LOGO
+========================= */
 
 .navbar__logo-enlace,
 .navbar__logo-enlace.active {
-  border-bottom: none !important;
+  display: flex;
+  align-items: center;
+
   padding: 0;
   margin: 0;
+
+  border-bottom: none !important;
 }
 
-
+.navbar__logo-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .navbar__logo {
-  height: 90px;
   width: auto;
+  max-height: 80px;
+
+  object-fit: contain;
   display: block;
 }
 
+/* =========================
+   LINKS
+========================= */
+
 .access {
-  margin-right: 20px;
+  display: flex;
+  align-items: center;
+
+  padding: 0.5rem 0;
+
   color: var(--color-oscuro);
+
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease;
+
+  border-bottom: 2px solid transparent;
 }
 
 .access:hover {
   color: var(--color-suave);
 }
 
+/* LINK ACTIVO */
+
+.menu .active {
+  color: var(--color-suave);
+  border-bottom-color: var(--color-suave);
+}
+
+/* =========================
+   CARRITO
+========================= */
+
 .icon-carrito {
   width: 24px;
   height: 24px;
+  display: block;
 }
 
+/* =========================
+   TRANSPARENTE - COLORES
+========================= */
 
-.top-bar--transparente {
-  background-color: transparent !important;
-    box-shadow: none;
-    position: absolute;
-}
-
-.top-bar--transparente .menu,
-.top-bar--transparente .menu-text,
-.top-bar--transparente .top-bar-left,
-.top-bar--transparente .top-bar-right {
-  background-color: transparent !important;
-}
-
-/* Textos en blanco */
-.top-bar--transparente .title,
-.top-bar--transparente .subtitle {
-  color: var(--color-marfil) !important;
-}
 .top-bar--transparente .access {
-  color: var(--color-marfil) !important;
+  color: var(--color-marfil);
 }
 
-.top-bar--transparente .access:hover {
-  color: var(--color-suave) !important;
-}
+.top-bar--transparente .access:hover,
 .top-bar--transparente .menu .active {
-  color: var(--color-suave) !important;
+  color: var(--color-suave);
+}
+
+.top-bar--transparente .menu .active {
   border-bottom-color: var(--color-suave);
 }
 
@@ -83,4 +172,25 @@
   filter: brightness(0) invert(1);
 }
 
+/* =========================
+   RESPONSIVE
+========================= */
 
+@media (max-width: 768px) {
+  .top-bar {
+    padding: 0 1rem;
+  }
+
+  .menu {
+    gap: 0.5rem;
+  }
+
+  .access {
+    font-size: 0.85rem;
+  }
+
+  .navbar__logo-wrapper {
+    width: 100px;
+    height: 50px;
+  }
+}
