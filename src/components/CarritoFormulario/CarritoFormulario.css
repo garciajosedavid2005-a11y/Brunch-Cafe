@@ -11,19 +11,33 @@
 }
 
 .carrito-formulario__separador {
-    height: 2px;
-    background: linear-gradient(to right, var(--color-primario), transparent);
+    height: 1px;
+    background-color: var(--color-suave);
     margin-bottom: 1.5rem;
     max-width: 350px;
 }
 
+.carrito-formulario__contenedor {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
 .carrito-formulario__card {
-    background: linear-gradient(135deg, var(--color-fondo), #f5e6e0);
+    background: #ffffff;
     border-radius: 12px;
-    padding: 1.5rem;
+    padding: 2rem;
     margin-bottom: 2rem;
-    border: 1px solid var(--color-suave);
-    box-shadow: 0 4px 15px rgba(44, 7, 3, 0.08);
+    box-shadow: 0 4px 20px rgba(44, 7, 3, 0.1);
+}
+
+/* Label encima de cada campo */
+.carrito-formulario__label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-oscuro);
+    margin-bottom: 0.4rem;
+    margin-top: 0.8rem;
 }
 
 .carrito-formulario__campo {
@@ -34,14 +48,13 @@
     border-radius: 8px;
     padding: 0.8rem 1.2rem;
     margin-bottom: 0.8rem;
-    border: 1.5px solid transparent;
-    box-shadow: 0 2px 8px rgba(44, 7, 3, 0.08);
+    border: 1.5px solid #e0e0e0;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .carrito-formulario__campo:focus-within {
     border-color: var(--color-primario);
-    box-shadow: 0 4px 12px rgba(137, 6, 32, 0.15);
+    box-shadow: 0 4px 12px rgba(137, 6, 32, 0.1);
 }
 
 .carrito-formulario__icono {
@@ -65,6 +78,7 @@
     font-style: italic;
 }
 
+/* Total */
 .carrito-formulario__total {
     display: flex;
     align-items: center;
@@ -91,6 +105,7 @@
     letter-spacing: 0.08em;
 }
 
+/* Botones */
 .carrito-formulario__botones {
     display: flex;
     gap: 1rem;
@@ -99,7 +114,7 @@
 
 .carrito-formulario__btn-limpiar,
 .carrito-formulario__btn-finalizar {
-    padding: 0.8rem 2.5rem;
+    padding: 0.9rem 2.5rem;
     border-radius: 6px;
     font-size: 0.85rem;
     font-weight: 700;
@@ -107,6 +122,7 @@
     cursor: pointer;
     transition: all 0.3s ease;
     text-transform: uppercase;
+    width: 45%;
 }
 
 .carrito-formulario__btn-limpiar {

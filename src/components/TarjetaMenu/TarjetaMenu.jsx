@@ -1,6 +1,17 @@
 import "./TarjetaMenu.css";
+import { useCarrito } from '../../context/CarritoContext'
+import { useNavigate } from 'react-router-dom'
 
 const TarjetaMenu = ({ id, nombre, descripcion, precio, imagen }) => {
+  
+  const { agregarProducto } = useCarrito()
+    const navigate = useNavigate()
+
+    const handleAgregar = () => {
+        agregarProducto({ id, nombre, descripcion, precio, imagen })
+        navigate('/domicilios')
+    }
+
   return (
     <article className="tarjeta-menu" data-id={id}>
       <div className="tarjeta-menu__imagen-wrap">
@@ -23,9 +34,7 @@ const TarjetaMenu = ({ id, nombre, descripcion, precio, imagen }) => {
             <button
               type="button"
               className="tarjeta-menu__overlay-boton"
-              onClick={() => {
-                // handleAddToCart({ id, nombre, precio, imagen })
-              }}
+              onClick={handleAgregar}
             >
               Agregar al carrito
             </button>
