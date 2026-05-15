@@ -110,3 +110,50 @@
 .carrito-producto__agregar-btn:hover {
     color: var(--color-primario);
 }
+
+.carrito-producto__eliminar {
+    background: transparent;
+    border: 1.5px solid var(--color-primario);
+    color: var(--color-primario);
+    padding: 0.4rem 1.2rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 0.8rem;
+    letter-spacing: 0.05em;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.carrito-producto__eliminar:hover {
+    background: var(--color-primario);
+    color: var(--color-marfil);
+    transform: translateY(-2px);
+}
+
+.carrito-producto__item {
+    padding: 1.5rem 0;
+}
+
+.carrito-producto__divisor {
+    border: none;
+    border-top: 1px solid var(--color-suave);
+    margin: 1.5rem 0 0 0;
+}
+
+.carrito-producto__precio-unitario {
+    font-size: 0.9rem;
+    color: var(--color-primario);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.carrito-producto__vacio {
+    text-align: center;
+    padding: 3rem 0;
+    font-size: 1.1rem;
+    color: var(--color-cafe-medio);
+}

@@ -1,9 +1,19 @@
 import useAnimacionEntrada from "../../hooks/useAnimacionEntrada";
 import "./TarjetaMenu.css";
-
+import { useCarrito } from '../../context/CarritoContext'
+import { useNavigate } from 'react-router-dom'
 
 const TarjetaMenu = ({ id, nombre, descripcion, precio, imagen, delay }) => {
+
   const ref = useAnimacionEntrada();
+
+  const { agregarProducto } = useCarrito();
+  const navigate = useNavigate();
+
+  const handleAgregar = () => {
+    agregarProducto({ id, nombre, descripcion, precio, imagen });
+    navigate('/domicilios');
+  };
 
   return (
     <article ref={ref} className={`tarjeta-menu animar animar--zoom delay-${delay}`} data-id={id}>
@@ -27,9 +37,7 @@ const TarjetaMenu = ({ id, nombre, descripcion, precio, imagen, delay }) => {
             <button
               type="button"
               className="tarjeta-menu__overlay-boton"
-              onClick={() => {
-                // handleAddToCart({ id, nombre, precio, imagen })
-              }}
+              onClick={handleAgregar}
             >
               Agregar al carrito
             </button>

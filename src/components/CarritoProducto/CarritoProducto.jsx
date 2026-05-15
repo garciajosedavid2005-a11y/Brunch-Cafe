@@ -1,6 +1,32 @@
 import "./CarritoProducto.css"
+import { useCarrito } from '../../context/CarritoContext'
+import { useNavigate } from 'react-router-dom'
 
-const CarritoProducto = ({ imagen, nombre, descripcion }) => {
+const CarritoProducto = () => {
+
+    const { productos, aumentarCantidad, disminuirCantidad, eliminarProducto } = useCarrito()
+    const navigate = useNavigate()
+
+    if (productos.length === 0) {
+        return (
+            <div className="carrito-producto">
+                <h1 className="carrito-producto__titulo">Carrito Brunch Café</h1>
+                <div className="carrito-producto__separador"></div>
+                <p className="carrito-producto__vacio">
+                    🛒 Tu carrito está vacío — agrega productos desde el menú
+                </p>
+                <div className="carrito-producto__agregar">
+                    <button 
+                        className="carrito-producto__agregar-btn"
+                        onClick={() => navigate('/menu')}
+                    >
+                        <span>+</span> Agregar Producto al Carrito
+                    </button>
+                </div>
+            </div>
+        )
+    }
+
     return (
         <div className="carrito-producto">
 
@@ -8,40 +34,69 @@ const CarritoProducto = ({ imagen, nombre, descripcion }) => {
             <h1 className="carrito-producto__titulo">Carrito Brunch Café</h1>
             <div className="carrito-producto__separador"></div>
 
-            {/* Producto */}
-            <div className="grid-x grid-padding-x align-middle">
+            {/* Lista de productos */}
+            {productos.map(producto => {
+                const precio = parseInt(producto.precio.replace(/[^0-9]/g, ''))
+                const subtotal = precio * producto.cantidad
 
-                {/* Imagen */}
-                <div className="cell small-12 medium-4">
-                    <img
-                        src={imagen}
-                        alt={nombre}
-                        className="carrito-producto__imagen"
-                    />
-                </div>
+                return (
+                    <div key={producto.id} className="carrito-producto__item">
+                        <div className="grid-x grid-padding-x align-middle">
 
-                {/* Info */}
-                <div className="cell small-12 medium-8">
-                    <h3 className="carrito-producto__nombre">{nombre}</h3>
-                    <div className="carrito-producto__linea"></div>
-                    <p className="carrito-producto__descripcion">{descripcion}</p>
-                    <p className="carrito-producto__descripcion">{descripcion}</p>
+                            {/* Imagen */}
+                            <div className="cell small-12 medium-4">
+                                <img
+                                    src={producto.imagen}
+                                    alt={producto.nombre}
+                                    className="carrito-producto__imagen"
+                                />
+                            </div>
 
-                    {/* Contador */}
-                    <div className="carrito-producto__contador">
-                        <button className="carrito-producto__btn">−</button>
-                        <span className="carrito-producto__cantidad">0</span>
-                        <button className="carrito-producto__btn">+</button>
+                            {/* Info */}
+                            <div className="cell small-12 medium-8">
+                                <h3 className="carrito-producto__nombre">{producto.nombre}</h3>
+                                <div className="carrito-producto__linea"></div>
+                                <p className="carrito-producto__descripcion">{producto.descripcion}</p>
+                                <p className="carrito-producto__precio-unitario">{producto.precio}</p>
+
+                                {/* Contador */}
+                                <div className="carrito-producto__contador">
+                                    <button
+                                        className="carrito-producto__btn"
+                                        onClick={() => disminuirCantidad(producto.id)}
+                                    >−</button>
+                                    <span className="carrito-producto__cantidad">{producto.cantidad}</span>
+                                    <button
+                                        className="carrito-producto__btn"
+                                        onClick={() => aumentarCantidad(producto.id)}
+                                    >+</button>
+                                </div>
+
+                                <p className="carrito-producto__total">
+                                    Total: ${subtotal.toLocaleString('es-CO')}
+                                </p>
+
+                                {/* Eliminar */}
+                                <button
+                                    className="carrito-producto__eliminar"
+                                    onClick={() => eliminarProducto(producto.id)}
+                                >
+                                    Eliminar
+                                </button>
+                            </div>
+
+                        </div>
+                        <hr className="carrito-producto__divisor" />
                     </div>
+                )
+            })}
 
-                    <p className="carrito-producto__total">Total: $ 000000</p>
-                </div>
-
-            </div>
-
-            {/* Botón agregar */}
+            {/* Botón agregar otro producto */}
             <div className="carrito-producto__agregar">
-                <button className="carrito-producto__agregar-btn">
+                <button 
+                    className="carrito-producto__agregar-btn"
+                    onClick={() => navigate('/menu')}
+                >
                     <span>+</span> Agregar Otro Producto al Carrito
                 </button>
             </div>
