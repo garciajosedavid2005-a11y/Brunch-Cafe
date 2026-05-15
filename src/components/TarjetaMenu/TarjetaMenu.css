@@ -7,8 +7,9 @@
   overflow: hidden;
   border: none; 
   box-shadow: none; 
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-  
+  transition:
+    transform 0.45s cubic-bezier(.22,1,.36,1),
+    box-shadow 0.45s ease;  
 }
 
 .tarjeta-menu:hover {
@@ -30,11 +31,14 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.8s ease;
+    transition:
+    transform 0.8s ease,
+    filter 0.5s ease;
 }
 
 .tarjeta-menu:hover .tarjeta-menu__imagen {
   transform: scale(1.08);
+  filter: brightness(0.9);
 }
 
 .tarjeta-menu__overlay {
@@ -43,7 +47,9 @@
   background: rgba(44, 7, 3, 0.6); 
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease;
+  transition:
+    opacity 0.45s ease,
+    backdrop-filter 0.45s ease;
   display: grid;
   place-items: center;
   padding: 1.5rem;

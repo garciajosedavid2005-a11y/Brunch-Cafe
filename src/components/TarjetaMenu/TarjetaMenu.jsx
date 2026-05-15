@@ -1,8 +1,12 @@
+import useAnimacionEntrada from "../../hooks/useAnimacionEntrada";
 import "./TarjetaMenu.css";
 
-const TarjetaMenu = ({ id, nombre, descripcion, precio, imagen }) => {
+
+const TarjetaMenu = ({ id, nombre, descripcion, precio, imagen, delay }) => {
+  const ref = useAnimacionEntrada();
+
   return (
-    <article className="tarjeta-menu" data-id={id}>
+    <article ref={ref} className={`tarjeta-menu animar animar--zoom delay-${delay}`} data-id={id}>
       <div className="tarjeta-menu__imagen-wrap">
         {imagen ? (
           <img
