@@ -15,6 +15,10 @@ const categorias = [
 const Menu = () => {
   return (
     <main className="menu-pagina">
+      <div className="mancha mancha-1"></div>
+      <div className="mancha mancha-2"></div>
+      <div className="mancha mancha-3"></div>
+      <div className="mancha mancha-4"></div>
       <section className="menu-hero">
         <h1 className="menu-hero__titulo">Brunch Café</h1>
         <p className="menu-hero__subtitulo">
