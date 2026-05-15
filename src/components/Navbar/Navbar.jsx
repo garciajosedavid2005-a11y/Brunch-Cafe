@@ -1,5 +1,5 @@
 import { NavLink, useLocation } from "react-router-dom";
-
+import { useEffect, useState } from "react";
 import compras from "../../assets/carrito-de-compras.png";
 import logoOscuro from "../../assets/logoOscuro.png";
 import logoClaro from "../../assets/logoClaro.png";
@@ -15,14 +15,37 @@ const rutasTransparentes = [
 
 const Navbar = () => {
   const { pathname } = useLocation();
-
+  const [oculta, setOculta] = useState(false);
   const esTransparente = rutasTransparentes.includes(pathname);
+  useEffect(() => {
+    if (esTransparente) return;
 
+    let ultimoScroll = window.scrollY;
+
+    const manejarScroll = () => {
+      const scrollActual = window.scrollY;
+
+      if (scrollActual > ultimoScroll && scrollActual > 100) {
+        setOculta(true);
+      } else {
+        setOculta(false);
+      }
+
+      ultimoScroll = scrollActual;
+    };
+
+    window.addEventListener("scroll", manejarScroll);
+
+    return () => {
+      window.removeEventListener("scroll", manejarScroll);
+    };
+  }, [esTransparente]);
   return (
     <header
-      className={`top-bar ${
-        esTransparente ? "top-bar--transparente" : ""
-      }`}
+      className={`top-bar 
+        ${esTransparente ? "top-bar--transparente" : ""}
+        ${oculta ? "top-bar--oculta" : ""}
+        `}
     >
       <div className="top-bar-left">
         <ul className="menu">
