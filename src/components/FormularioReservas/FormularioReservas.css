@@ -133,3 +133,19 @@
     background: transparent;
     outline: none;
 }
+
+.formulario-error {
+    color: var(--color-primario);
+    font-size: 0.8rem;
+    margin-top: -0.5rem;
+    margin-bottom: 0.8rem;
+    padding-left: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.formulario-error::before {
+    content: '⚠';
+    font-size: 0.75rem;
+}
