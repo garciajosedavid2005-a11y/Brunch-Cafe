@@ -10,11 +10,15 @@ const Comentarios = () => {
     setNuevos([nuevo, ...nuevos]);
     };
     return (
-        <main className="pagina-Comentarios">
-            <HeroComentarios />
-            <FormularioComentarios onAgregar={agregarComentario} />
-            <ListaComentarios nuevos={nuevos} />
+        <main className="pagina-comentarios">
+        {/* Manchas decorativas */}
+        <div className="mancha-comentarios mancha-comentarios-1" aria-hidden="true" />
+        <div className="mancha-comentarios mancha-comentarios-2" aria-hidden="true" />
+        <div className="mancha-comentarios mancha-comentarios-3" aria-hidden="true" />
 
+        <HeroComentarios />
+        <FormularioComentarios onPublicar={agregarComentario} />
+        <ListaComentarios nuevos={nuevos} />
         </main>
     );
 };
