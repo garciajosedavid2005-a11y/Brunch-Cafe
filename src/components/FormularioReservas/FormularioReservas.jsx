@@ -4,7 +4,8 @@ import { personas } from '../../data/personas'
 import { horas } from '../../data/horas'
 import useSelectPersonas from '../../hooks/useSelectPersonas'
 import { useState, useEffect } from 'react'
-import { FaUser, FaUsers, FaCalendarAlt, FaClock, FaCommentAlt } from 'react-icons/fa'
+import { FaUser, FaUsers, FaCalendarAlt, FaClock, FaCommentAlt, FaEnvelope } from 'react-icons/fa'
+import emailjs from '@emailjs/browser'
 
 const FormularioReservas = () => {
     const [persona, SelectPersonas] = useSelectPersonas('Seleccione la cantidad de personas:', personas, false)
@@ -13,6 +14,7 @@ const FormularioReservas = () => {
 
     const [formData, setFormData] = useState({
         nombre: '',
+        correo: '',
         personas: '',
         fecha: '',
         hora: '',
@@ -36,14 +38,89 @@ const FormularioReservas = () => {
         })
     }
 
+    // Validaciones
+
+    const [errores, setErrores] = useState({})
+
+    const validar = () => {
+        const nuevosErrores = {}
+
+        // Nombre — solo letras y espacios, mínimo 3 caracteres
+        if (!formData.nombre.trim()) {
+            nuevosErrores.nombre = 'El nombre es requerido'
+        } else if (formData.nombre.trim().length < 3) {
+            nuevosErrores.nombre = 'El nombre debe tener al menos 3 caracteres'
+        } else if (!/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/.test(formData.nombre)) {
+            nuevosErrores.nombre = 'El nombre solo puede contener letras'
+        }
+
+        // Correo — formato válido
+        if (!formData.correo.trim()) {
+            nuevosErrores.correo = 'El correo es requerido'
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.correo)) {
+            nuevosErrores.correo = 'Ingresa un correo válido'
+        }
+
+        // Personas
+        if (!formData.personas) {
+            nuevosErrores.personas = 'Selecciona la cantidad de personas'
+        }
+
+        // Fecha
+        if (!formData.fecha) {
+            nuevosErrores.fecha = 'La fecha es requerida'
+        }
+
+        // Hora
+        if (!formData.hora) {
+            nuevosErrores.hora = 'Selecciona una hora'
+        }
+
+        // Observaciones — opcional pero si se escribe máximo 200 caracteres
+        if (formData.observaciones.length > 200) {
+            nuevosErrores.observaciones = 'Las observaciones no pueden superar 200 caracteres'
+        }
+
+        return nuevosErrores
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (!formData.nombre || !formData.fecha) {
-            alert('Por favor completa los campos requeridos')
+        const nuevosErrores = validar()
+        if (Object.keys(nuevosErrores).length > 0) {
+            setErrores(nuevosErrores)
             return
         }
+        setErrores({})
         setMostrarModal(true)
     }
+
+    const handleConfirmar = () => {
+        emailjs.send(
+            'service_mn2rux3',
+            'template_r4mj66a',
+            {
+                nombre: formData.nombre,
+                correo: formData.correo,
+                fecha: formData.fecha,
+                hora: formData.hora,
+                personas: formData.personas,
+                observaciones: formData.observaciones || 'Ninguna'
+            },
+            'zhwv2cSLgGN51vwua'
+        )
+        .then(() => {
+            setMostrarModal(false)
+            alert('¡Reserva confirmada! Te enviamos un correo con los detalles.')
+            setFormData({ nombre: '', correo: '', personas: '', fecha: '', hora: '', observaciones: '' })
+        })
+        .catch(() => {
+            alert('Hubo un error al enviar el correo. Intenta de nuevo.')
+        })
+    }
+
+
+
 
     return (
         <>
@@ -69,6 +146,23 @@ const FormularioReservas = () => {
                                         className="formulario-input"
                                     />
                                 </div>
+                                {errores.nombre && <p className="formulario-error">{errores.nombre}</p>}
+
+                                {/* Campo correo */}
+                                <label htmlFor="correo">Ingrese su correo electrónico:</label>
+                                <div className="formulario-campo-icono">
+                                    <FaEnvelope className="formulario-icono" />
+                                    <input
+                                        type="email"
+                                        id="correo"
+                                        name="correo"
+                                        value={formData.correo}
+                                        onChange={handleChange}
+                                        placeholder="ejemplo@correo.com"
+                                        className="formulario-input"
+                                    />
+                                </div>
+                                {errores.correo && <p className="formulario-error">{errores.correo}</p>}
 
                                 {/* Campo Cantidad de Personas */}
                                 <label>Seleccione la cantidad de personas:</label>
@@ -76,6 +170,7 @@ const FormularioReservas = () => {
                                     <FaUsers className="formulario-icono" />
                                     <SelectPersonas />
                                 </div>
+                                {errores.personas && <p className="formulario-error">{errores.personas}</p>}
 
                                 {/* Campo Fecha */}
                                 <label htmlFor="fecha">Ingrese la fecha que desee:</label>
@@ -92,6 +187,7 @@ const FormularioReservas = () => {
                                         className="formulario-input"
                                     />
                                 </div>
+                                {errores.fecha && <p className="formulario-error">{errores.fecha}</p>}
 
                                 {/* Campo Hora */}
                                 <label>Ingrese la hora:</label>
@@ -99,6 +195,7 @@ const FormularioReservas = () => {
                                     <FaClock className="formulario-icono" />
                                     <SelectHoras />
                                 </div>
+                                {errores.hora && <p className="formulario-error">{errores.hora}</p>}
 
 
                                 {/* Observaciones */}
@@ -115,6 +212,7 @@ const FormularioReservas = () => {
                                         className="formulario-input"
                                     />
                                 </div>
+                                {errores.observaciones && <p className="formulario-error">{errores.observaciones}</p>}
 
                                 {/* Botones */}
                                 <div className="formulario-botones">
@@ -138,11 +236,7 @@ const FormularioReservas = () => {
             <ResumenReserva
                 formData={formData}
                 onEditar={() => setMostrarModal(false)}
-                onConfirmar={() => {
-                    setMostrarModal(false)
-                    alert('¡Reserva confirmada! Nos vemos pronto.')
-                    setFormData({ nombre: '', personas: '', fecha: '', hora: '', observaciones: '' })
-                }}
+                onConfirmar={handleConfirmar}
             />
         )}
         </>

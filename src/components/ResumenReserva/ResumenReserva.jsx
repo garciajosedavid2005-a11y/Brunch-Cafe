@@ -1,5 +1,5 @@
 import "./ResumenReserva.css"
-import { FaUser, FaUsers, FaCalendarAlt, FaClock, FaCommentAlt, FaCheckCircle } from 'react-icons/fa'
+import { FaUser, FaUsers, FaCalendarAlt, FaClock, FaCommentAlt, FaCheckCircle, FaEnvelope } from 'react-icons/fa'
 import { useEffect } from 'react'
 
 const ResumenReserva = ({ formData, onEditar, onConfirmar }) => {
@@ -32,6 +32,15 @@ const ResumenReserva = ({ formData, onEditar, onConfirmar }) => {
                             <span className="resumen-item__valor">{formData.nombre}</span>
                         </div>
                     </div>
+                    
+                    <div className="resumen-item">
+                        <FaEnvelope className="resumen-item__icono" />
+                        <div>
+                            <span className="resumen-item__label">Correo</span>
+                            <span className="resumen-item__valor">{formData.correo}</span>
+                        </div>
+                    </div>
+
 
                     <div className="resumen-item">
                         <FaUsers className="resumen-item__icono" />
