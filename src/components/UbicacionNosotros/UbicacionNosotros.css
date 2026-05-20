@@ -30,7 +30,7 @@
 /* Foto del local */
 .ubicacion-foto {
     width: 100%;
-    height: 350px;
+    height: 318px;
     object-fit: cover;
     border-radius: 8px;
     box-shadow: 0 6px 20px var(--color-oscuro);

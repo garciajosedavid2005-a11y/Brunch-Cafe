@@ -1,12 +1,72 @@
 import "./CarritoFormulario.css"
 import { FaUser, FaMapMarkerAlt, FaClock, FaHome, FaStickyNote } from 'react-icons/fa'
 import { useCarrito } from '../../context/CarritoContext'
+import { useState } from 'react'
+import ResumenPedido from '../ResumenPedido/ResumenPedido'
 
 const CarritoFormulario = () => {
 
-    const { calcularTotal, limpiarCarrito } = useCarrito()
+    const { calcularTotal, limpiarCarrito, productos } = useCarrito()
+
+    const [formData, setFormData] = useState({
+        nombre: '',
+        direccion: '',
+        hora: '',
+        barrio: '',
+        indicaciones: ''
+    })
+
+    const [mostrarModal, setMostrarModal] = useState(false)
+    const [errores, setErrores] = useState({})
+
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value })
+    }
+
+    const validar = () => {
+        const nuevosErrores = {}
+        if (!formData.nombre.trim()) nuevosErrores.nombre = 'El nombre es requerido'
+        if (!formData.direccion.trim()) nuevosErrores.direccion = 'La dirección es requerida'
+        if (!formData.hora.trim()) nuevosErrores.hora = 'La hora es requerida'
+        if (!formData.barrio.trim()) nuevosErrores.barrio = 'El barrio es requerido'
+        if (!formData.hora.trim()) {
+            nuevosErrores.hora = 'La hora es requerida'
+        } else {
+            const hora = formData.hora
+            if (hora < '08:00' || hora > '16:00') {
+                nuevosErrores.hora = 'La hora debe estar entre 8:00 AM y 4:00 PM'
+            }
+        }
+
+        return nuevosErrores
+    }
+
+    const handleFinalizar = () => {
+
+        if (productos.length === 0) {
+            alert('Tu carrito está vacío — agrega productos desde el menú')
+            return
+        }
+
+        const nuevosErrores = validar()
+        if (Object.keys(nuevosErrores).length > 0) {
+            setErrores(nuevosErrores)
+            return
+        }
+        setErrores({})
+        setMostrarModal(true)
+    }
+
+    const handleConfirmar = () => {
+        setMostrarModal(false)
+        alert('¡Pedido confirmado! Pronto estará en tu puerta.')
+        limpiarCarrito()
+        setFormData({ nombre: '', direccion: '', hora: '', barrio: '', indicaciones: '' })
+    }
 
     return (
+
+        <>
         <div className="carrito-formulario">
 
             {/* Título */}
@@ -27,8 +87,12 @@ const CarritoFormulario = () => {
                                     type="text"
                                     placeholder="Indique su Nombre..."
                                     className="carrito-formulario__input"
+                                    name="nombre"
+                                    value={formData.nombre}
+                                    onChange={handleChange}
                                 />
                             </div>
+                            {errores.nombre && <p className="carrito-error">{errores.nombre}</p>}
                         </div>
 
                         {/* Dirección */}
@@ -40,8 +104,12 @@ const CarritoFormulario = () => {
                                     type="text"
                                     placeholder="Indique su Dirección..."
                                     className="carrito-formulario__input"
+                                    name="direccion"
+                                    value={formData.direccion}
+                                    onChange={handleChange}
                                 />
                             </div>
+                            {errores.direccion && <p className="carrito-error">{errores.direccion}</p>}
                         </div>
 
                         {/* Hora */}
@@ -50,11 +118,17 @@ const CarritoFormulario = () => {
                             <div className="carrito-formulario__campo">
                                 <FaClock className="carrito-formulario__icono" />
                                 <input
-                                    type="text"
+                                    type="time"
                                     placeholder="Hora de entrega..."
                                     className="carrito-formulario__input"
+                                    name="hora"
+                                    value={formData.hora}
+                                    onChange={handleChange}
+                                    min="08:00"
+                                    max="16:00"
                                 />
                             </div>
+                            {errores.hora && <p className="carrito-error">{errores.hora}</p>}
                         </div>
 
                         {/* Barrio o conjunto */}
@@ -66,8 +140,12 @@ const CarritoFormulario = () => {
                                     type="text"
                                     placeholder="Barrio o conjunto cerrado..."
                                     className="carrito-formulario__input"
+                                    name="barrio"
+                                    value={formData.barrio}
+                                    onChange={handleChange}
                                 />
                             </div>
+                            {errores.barrio && <p className="carrito-error">{errores.barrio}</p>}
                         </div>
 
                         {/* Indicaciones */}
@@ -79,10 +157,13 @@ const CarritoFormulario = () => {
                                     type="text"
                                     placeholder="Indicaciones especiales..."
                                     className="carrito-formulario__input"
+                                    name="indicaciones"
+                                    value={formData.indicaciones}
+                                    onChange={handleChange}
                                 />
                             </div>
+                            {errores.indicaciones && <p className="carrito-error">{errores.indicaciones}</p>}
                         </div>
-
                     </div>
                 </div>
 
@@ -103,14 +184,23 @@ const CarritoFormulario = () => {
                     >
                         LIMPIAR
                     </button>
-                    <button className="carrito-formulario__btn-finalizar">
+                    <button className="carrito-formulario__btn-finalizar" onClick={handleFinalizar}>
                         FINALIZAR COMPRA
                     </button>
                 </div>
 
             </div>
         </div>
-    )
+        
+        {mostrarModal && (
+                <ResumenPedido
+                    formData={formData}
+                    onEditar={() => setMostrarModal(false)}
+                    onConfirmar={handleConfirmar}
+                />
+            )}
+        </>
+    );
 }
 
 export default CarritoFormulario
