@@ -82,7 +82,7 @@
 .experiencia__titulo {
   margin-bottom: 1.8rem;
 
-  font-family: 'Playfair Display', serif;
+  font-family: var(--fuente-titulos);
   font-size: clamp(1.5rem, 3vw, 2rem);
   line-height: 1.2;
   color: var(--color-oscuro);
@@ -125,14 +125,17 @@
   display: block;
   margin-bottom: 0.2rem;
 
-  font: 0.95rem 'Playfair Display', serif;
+  font-size: 0.95rem;
+  font-family: var(--fuente-titulos);
   color: var(--color-oscuro);
 }
 
 .experiencia__item-descripcion {
   margin: 0;
 
-  font: 0.88rem/1.55 'Lato', sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  font-family: var(--fuente-cuerpo);
   color: var(--color-medio);
 }
 

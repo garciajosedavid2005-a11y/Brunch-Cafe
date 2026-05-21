@@ -21,7 +21,7 @@
 }
 
 .ubicacion-separador__texto {
-    font-family: 'Great Vibes', cursive;
+    font-family: var(--fuente-acentos);
     font-size: 1.8rem;
     color: var(--color-primario);
     white-space: nowrap;
@@ -58,13 +58,13 @@
 }
 
 .ubicacion-titulo {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--fuente-titulos);
     font-size: 1.3rem;
     color: var(--color-oscuro);
     margin-bottom: 1.5rem;
     border-bottom: 1px solid var(--color-primario);
     padding-bottom: 0.8rem;
-    font-weight: 700;
+    font-weight: 500;
 }
 
 .ubicacion-item {
@@ -89,11 +89,11 @@
     line-height: 1.6;
     color: var(--color-oscuro);
     font-size: 1rem;
-    font-weight: 700;
+    font-weight: 500;
 }
 
 .ubicacion-item span {
-    font-weight: 700;
+    font-weight: 500;
     font-size: 1rem;
     color: var(--color-oscuro);
     padding-left: 37px;

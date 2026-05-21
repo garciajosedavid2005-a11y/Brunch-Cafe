@@ -41,14 +41,16 @@
 }
 
 .destacados__titulo {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--fuente-titulos);
   font-size: clamp(1.8rem, 4vw, 2.6rem);
   color: var(--color-oscuro);
   margin-bottom: 0.4rem;
 }
 
 .destacados__subtitulo {
-  font: 300 1rem 'Lato', sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  font-family: var(--fuente-cuerpo);
   letter-spacing: 0.05em;
   color: var(--color-medio);
 }
@@ -153,6 +155,55 @@
   transform: scale(1.08);
 }
 
+.tarjeta-destacado__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(44, 7, 3, 0.6);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.45s ease;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+}
+
+.tarjeta-destacado:hover .tarjeta-destacado__overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.tarjeta-destacado__overlay-body {
+  text-align: center;
+  color: var(--color-blanco);
+  display: grid;
+  gap: 1rem;
+  max-width: 260px;
+  justify-items: center;
+}
+
+.tarjeta-destacado__overlay-text {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+.tarjeta-destacado__overlay-boton {
+  border: none;
+  cursor: pointer;
+  border-radius: 50px;
+  background: var(--color-blanco);
+  color: var(--color-primario);
+  padding: 0.8rem 1.5rem;
+  font-weight: 500;
+  transition: transform 0.2s ease;
+  width: 90%;
+}
+
+.tarjeta-destacado__overlay-boton:hover {
+  transform: scale(1.05);
+}
+
 /* ───────── Placeholder ───────── */
 
 .tarjeta-destacado__placeholder {
@@ -172,7 +223,8 @@
 
 .tarjeta-destacado__placeholder-texto {
   margin: 0;
-  font: 0.8rem 'Lato', sans-serif;
+  font-size: 0.8rem;
+  font-family: var(--fuente-cuerpo);
   color: var(--color-oscuro);
 }
 
@@ -189,7 +241,9 @@
   background: var(--color-primario);
   color: var(--color-marfil);
 
-  font: 700 0.6rem 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 0.6rem;
+  font-family: var(--fuente-cuerpo);
   letter-spacing: 0.1em;
   text-transform: uppercase;
 
@@ -210,7 +264,7 @@
 .tarjeta-destacado__nombre {
   margin-bottom: 0.7rem;
 
-  font-family: 'Playfair Display', serif;
+  font-family: var(--fuente-titulos);
   font-size: 1.25rem;
   line-height: 1.2;
   color: var(--color-oscuro);
@@ -225,7 +279,9 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
 
-  font: 0.9rem/1.6 'Lato', sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  font-family: var(--fuente-cuerpo);
   color: var(--color-medio);
 }
 
@@ -241,7 +297,9 @@
 }
 
 .tarjeta-destacado__precio {
-  font: 700 1.1rem 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  font-family: var(--fuente-titulos);
   color: var(--color-primario);
 }
 

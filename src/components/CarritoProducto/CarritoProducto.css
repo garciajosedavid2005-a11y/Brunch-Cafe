@@ -1,5 +1,5 @@
 .carrito-producto__titulo {
-    font-family: 'Great Vibes', cursive;
+    font-family: var(--fuente-acentos);
     font-size: 4rem;
     color: var(--color-primario);
     text-align: center;
@@ -21,7 +21,7 @@
 }
 
 .carrito-producto__nombre {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--fuente-titulos);
     font-size: 1.3rem;
     color: var(--color-oscuro);
     margin-bottom: 0.5rem;

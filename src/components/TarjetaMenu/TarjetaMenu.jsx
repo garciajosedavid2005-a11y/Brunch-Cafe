@@ -1,21 +1,15 @@
-import useAnimacionEntrada from "../../hooks/useAnimacionEntrada";
 import "./TarjetaMenu.css";
 import { useCarrito } from '../../context/CarritoContext'
-import { useNavigate } from 'react-router-dom'
 
 const TarjetaMenu = ({ id, nombre, descripcion, precio, imagen, delay }) => {
-
-  const ref = useAnimacionEntrada();
-
   const { agregarProducto } = useCarrito();
-  const navigate = useNavigate();
 
   const handleAgregar = () => {
     agregarProducto({ id, nombre, descripcion, precio, imagen });
   };
 
   return (
-    <article ref={ref} className={`tarjeta-menu animar animar--zoom delay-${delay}`} data-id={id}>
+    <article className={`tarjeta-menu ${delay ? `delay-${delay}` : ""}`} data-id={id}>
       <div className="tarjeta-menu__imagen-wrap">
         {imagen ? (
           <img

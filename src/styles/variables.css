@@ -10,6 +10,11 @@
     --color-negro: #000000;
     --color-sombra: #0000000a;
 
-    --fuente-decorativa: 'Great Vibes', cursive;
+    --fuente-titulos: 'Cormorant Garamond', serif;
+    --fuente-cuerpo: 'Montserrat', sans-serif;
+    --fuente-acentos: 'Great Vibes', cursive;
 
+}
+html {
+  scrollbar-gutter: stable;
 }
