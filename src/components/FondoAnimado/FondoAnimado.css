@@ -21,11 +21,21 @@
 
 .fondo-animado__icono {
     position: absolute;
-    font-size: 2rem;
+    display: grid;
+    place-items: center;
+    width: 3.2rem;
+    height: 3.2rem;
+    color: var(--color-oscuro);
     opacity: 0.4;
     animation: flotar 10s ease-in-out infinite;
     user-select: none;
     pointer-events: none;
+}
+
+.fondo-animado__icono svg {
+    width: 2rem;
+    height: 2rem;
+    display: block;
 }
 
 @keyframes flotar {
@@ -54,4 +64,17 @@
 .fondo-animado__contenido {
     position: relative;
     z-index: 1;
+}
+
+@media (max-width: 768px) {
+    .fondo-animado__icono {
+        width: 2.6rem;
+        height: 2.6rem;
+        opacity: 0.3;
+    }
+
+    .fondo-animado__icono svg {
+        width: 1.55rem;
+        height: 1.55rem;
+    }
 }

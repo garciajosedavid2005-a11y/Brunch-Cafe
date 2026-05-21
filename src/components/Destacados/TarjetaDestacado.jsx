@@ -4,6 +4,8 @@
  * El administrador NO edita este archivo.
  */
 
+import { useCarrito } from '../../context/CarritoContext';
+
 /* ════════════════════════════════
    Placeholder
 ════════════════════════════════ */
@@ -28,12 +30,19 @@ const TarjetaDestacado = ({
   producto,
 }) => {
   const {
+    id,
     nombre,
     descripcion,
     precio,
     categoria,
     imagen,
   } = producto;
+
+  const { agregarProducto } = useCarrito();
+
+  const handleAgregar = () => {
+    agregarProducto({ id, nombre, descripcion, precio, imagen });
+  };
 
   return (
     <article className="tarjeta-destacado">
@@ -53,10 +62,20 @@ const TarjetaDestacado = ({
           <PlaceholderImagen />
         )}
 
-        <div
-          className="tarjeta-destacado__overlay"
-          aria-hidden="true"
-        />
+        <div className="tarjeta-destacado__overlay">
+          <div className="tarjeta-destacado__overlay-body">
+            <p className="tarjeta-destacado__overlay-text">
+              {descripcion}
+            </p>
+            <button
+              type="button"
+              className="tarjeta-destacado__overlay-boton"
+              onClick={handleAgregar}
+            >
+              Agregar al carrito
+            </button>
+          </div>
+        </div>
 
         <span className="tarjeta-destacado__categoria">
           {categoria}

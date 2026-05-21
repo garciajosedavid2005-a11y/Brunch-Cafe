@@ -41,7 +41,7 @@
 }
 
 .resumen-pedido__header-titulo {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--fuente-titulos);
     font-size: 1.4rem;
     color: var(--color-oscuro);
     margin-bottom: 0.3rem;

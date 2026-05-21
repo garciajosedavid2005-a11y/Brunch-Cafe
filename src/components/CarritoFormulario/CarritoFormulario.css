@@ -3,7 +3,7 @@
 }
 
 .carrito-formulario__titulo { 
-    font-family: 'Playfair Display', serif; 
+    font-family: var(--fuente-titulos); 
     font-size: 1.8rem; 
     color: var(--color-primario); 
     margin-bottom: 0.5rem; 
@@ -15,13 +15,13 @@
 .carrito-formulario__separador { 
     height: 1px; 
     background-color: var(--color-suave); 
-    margin-bottom: 1.5rem; 
+    margin: 0 auto 1.5rem; 
     max-width: 350px; 
-    margin-left: 400px;
 }
 
 .carrito-formulario__contenedor {
     max-width: 640px;
+    width: min(100%, 640px);
     margin: 0 auto;
 }
 
@@ -93,7 +93,7 @@
     color: var(--color-oscuro);
     background: transparent !important;
     box-shadow: none !important;
-    font-family: 'Lato', sans-serif;
+    font-family: var(--fuente-cuerpo);
     margin: 0;
     padding: 0;
 }
@@ -215,5 +215,11 @@
     .carrito-formulario__separador {
         margin-left: auto;
         margin-right: auto;
+    }
+
+    .carrito-formulario__campo {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
     }
 }

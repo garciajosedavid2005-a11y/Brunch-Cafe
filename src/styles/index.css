@@ -4,20 +4,91 @@
     box-sizing: border-box;
 }
 
+html,
+body,
+button,
+input,
+textarea,
+select,
+p,
+a,
+li,
+span {
+  font-family: var(--fuente-cuerpo), sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--fuente-titulos), serif;
+}
+
+.texto-base {
+  font-family: var(--fuente-cuerpo), sans-serif !important;
+}
+
+.texto-titulo {
+  font-family: var(--fuente-titulos), serif !important;
+}
+
+.texto-acento {
+  font-family: var(--fuente-acentos), cursive !important;
+}
+
+html {
+  overflow-x: hidden;
+}
+
 body {
   background-color: var(--color-fondo);
+  font-family: var(--fuente-cuerpo), sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+img,
+picture,
+svg,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button,
+input,
+textarea,
+select {
+  max-width: 100%;
 }
 
 #root {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .main-content {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
   background-color: var(--color-fondo);
-  padding-top: 64px;
+  padding-top: 85px;
+}
 
+@media (max-width: 768px) {
+  .main-content {
+    padding-top: 85px;
+  }
+}
+
+@media (max-width: 640px) {
+  .main-content {
+    padding: 0 0.75rem 1rem;
+  }
 }
 /* ════════════════════════════════
    Animaciones de entrada

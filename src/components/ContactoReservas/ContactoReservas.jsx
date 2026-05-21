@@ -22,7 +22,7 @@ const ContactoReservas = () => {
                             </h3>
                             <div className="contacto-card__telefono">
                                 <FaPhone className="contacto-card__icono" />
-                                <span>#0000000000</span>
+                                <span className="contacto-card__numero">#0000000000</span>
                             </div>
                             <p className="contacto-card__mensaje">
                                 Llámanos y te podremos ayudar
