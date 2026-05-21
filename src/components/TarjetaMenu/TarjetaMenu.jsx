@@ -12,7 +12,6 @@ const TarjetaMenu = ({ id, nombre, descripcion, precio, imagen, delay }) => {
 
   const handleAgregar = () => {
     agregarProducto({ id, nombre, descripcion, precio, imagen });
-    navigate('/domicilios');
   };
 
   return (
